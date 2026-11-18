@@ -1,0 +1,54 @@
+{
+  "id": "01a1ede8-2fe8-7ba2-808e-9cb6f3a1f983",
+  "user_id": "user_01a1d4f5-92dc-7062-b225-880a924f573e",
+  "name": "复活吧",
+  "workspace": "/home/yang/自然设计",
+  "workspace_mode": "shared",
+  "agents": "[{\"slot_id\":\"01a1ede8-2fe8-7ba2-808e-9ccc29f3bfba\",\"name\":\"Antigravity\",\"role\":\"lead\",\"conversation_id\":\"a50c63d2\",\"backend\":\"antigravity\",\"model\":\"gemini-4-hydrogen-high\",\"assistant_id\":\"bare:a9f3c21e\"},{\"slot_id\":\"01a1ede8-3071-7df2-88e0-ebba76d64fba\",\"name\":\"Deepseek\",\"role\":\"teammate\",\"conversation_id\":\"076af562\",\"backend\":\"aionrs\",\"model\":\"cn:deepseek-v4.1-flash@high\",\"assistant_id\":\"bare:632f31d2\"},{\"slot_id\":\"01a1ede8-30a5-7fa3-b803-6b24c93ececb\",\"name\":\"GPT 6.2sol\",\"role\":\"teammate\",\"conversation_id\":\"269d54a8\",\"backend\":\"codex\",\"model\":\"gpt-6.2-sol\",\"assistant_id\":\"bare:8e1acf31\"},{\"slot_id\":\"01a1ede8-30e2-7851-9619-2a59729073c4\",\"name\":\"Hydrogen\",\"role\":\"teammate\",\"conversation_id\":\"a7d4c7db\",\"backend\":\"aionrs\",\"model\":\"gemini-4-hydrogen-xhigh(high)\",\"assistant_id\":\"bare:632f31d2\"}]",
+  "lead_agent_id": "01a1ede8-2fe8-7ba2-808e-9ccc29f3bfba",
+  "session_mode": null,
+  "agents_version": "1.0.1",
+  "created_at": 1794992779240,
+  "updated_at": 1794993834441,
+  "project_id": "project_01a1e99f-c141-77e3-bc20-52920745bf90",
+  "folder_id": "folder_01a1e99f-c13c-7611-8ed2-417a8c12e12e",
+  "archived_at": null,
+  "agents_parsed": [
+    {
+      "slot_id": "01a1ede8-2fe8-7ba2-808e-9ccc29f3bfba",
+      "name": "Antigravity",
+      "role": "lead",
+      "conversation_id": "a50c63d2",
+      "backend": "antigravity",
+      "model": "gemini-4-hydrogen-high",
+      "assistant_id": "bare:a9f3c21e"
+    },
+    {
+      "slot_id": "01a1ede8-3071-7df2-88e0-ebba76d64fba",
+      "name": "Deepseek",
+      "role": "teammate",
+      "conversation_id": "076af562",
+      "backend": "aionrs",
+      "model": "cn:deepseek-v4.1-flash@high",
+      "assistant_id": "bare:632f31d2"
+    },
+    {
+      "slot_id": "01a1ede8-30a5-7fa3-b803-6b24c93ececb",
+      "name": "GPT 6.2sol",
+      "role": "teammate",
+      "conversation_id": "269d54a8",
+      "backend": "codex",
+      "model": "gpt-6.2-sol",
+      "assistant_id": "bare:8e1acf31"
+    },
+    {
+      "slot_id": "01a1ede8-30e2-7851-9619-2a59729073c4",
+      "name": "Hydrogen",
+      "role": "teammate",
+      "conversation_id": "a7d4c7db",
+      "backend": "aionrs",
+      "model": "gemini-4-hydrogen-xhigh(high)",
+      "assistant_id": "bare:632f31d2"
+    }
+  ]
+}

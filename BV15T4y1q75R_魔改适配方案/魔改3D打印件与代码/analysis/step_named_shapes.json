@@ -1,0 +1,554 @@
+[
+  {
+    "name": "Jumping Robot Version 2 v6",
+    "path": "/Jumping Robot Version 2 v6",
+    "solids": 44,
+    "bbox_xyz_mm": [
+      228.78914111082,
+      122.0,
+      168.0
+    ],
+    "volume_cm3": 314.9385633571548,
+    "valid": true
+  },
+  {
+    "name": " Back",
+    "path": "/Jumping Robot Version 2 v6/ Back",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      37.0000002,
+      16.00000047058539,
+      62.000000542726816
+    ],
+    "volume_cm3": 10.9291081264505,
+    "valid": true
+  },
+  {
+    "name": "Rack",
+    "path": "/Jumping Robot Version 2 v6/Rack",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      129.14422231506842,
+      8.500000000000213,
+      18.00000020000004
+    ],
+    "volume_cm3": 13.930395858246818,
+    "valid": true
+  },
+  {
+    "name": "Main Gear",
+    "path": "/Jumping Robot Version 2 v6/Main Gear",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      43.597379986108706,
+      43.579691280309305,
+      31.200000200000012
+    ],
+    "volume_cm3": 35.876394257204176,
+    "valid": true
+  },
+  {
+    "name": "Second Gear",
+    "path": "/Jumping Robot Version 2 v6/Second Gear",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      37.64101563652298,
+      37.64101563652251,
+      43.20000020000032
+    ],
+    "volume_cm3": 16.040708561297755,
+    "valid": true
+  },
+  {
+    "name": "Servo Gear",
+    "path": "/Jumping Robot Version 2 v6/Servo Gear",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      27.24871105489828,
+      27.248711505964295,
+      10.000000200000411
+    ],
+    "volume_cm3": 4.268612128830239,
+    "valid": true
+  },
+  {
+    "name": "Brake 2",
+    "path": "/Jumping Robot Version 2 v6/Brake 2",
+    "solids": 2,
+    "bbox_xyz_mm": [
+      9.200000199999977,
+      12.000000199999995,
+      58.00000020000001
+    ],
+    "volume_cm3": 1.4745228643126678,
+    "valid": true
+  },
+  {
+    "name": "Brake ",
+    "path": "/Jumping Robot Version 2 v6/Brake 2/Brake ",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      9.200000199999977,
+      12.000000199999995,
+      12.00000020000001
+    ],
+    "volume_cm3": 0.737261432156334,
+    "valid": true
+  },
+  {
+    "name": "SOLID",
+    "path": "/Jumping Robot Version 2 v6/Brake 2/SOLID",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      9.200000199999977,
+      12.000000199999995,
+      12.000000200000008
+    ],
+    "volume_cm3": 0.7372614321563333,
+    "valid": true
+  },
+  {
+    "name": "Frame V2",
+    "path": "/Jumping Robot Version 2 v6/Frame V2",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      81.86322962607731,
+      86.57407083055283,
+      113.96000124435952
+    ],
+    "volume_cm3": 56.017887721503804,
+    "valid": true
+  },
+  {
+    "name": "Wheel 2",
+    "path": "/Jumping Robot Version 2 v6/Wheel 2",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      120.00000019999999,
+      120.00000019999999,
+      19.9999994778198
+    ],
+    "volume_cm3": 14.060805829265263,
+    "valid": true
+  },
+  {
+    "name": "Motor Gear 2",
+    "path": "/Jumping Robot Version 2 v6/Motor Gear 2",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      11.087941826788665,
+      10.880034868604241,
+      7.000000199999995
+    ],
+    "volume_cm3": 0.34980689387355823,
+    "valid": true
+  },
+  {
+    "name": "Wheel Spacer 2",
+    "path": "/Jumping Robot Version 2 v6/Wheel Spacer 2",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      7.500000000000028,
+      7.5,
+      4.0000000000000995
+    ],
+    "volume_cm3": 0.09817477042468105,
+    "valid": true
+  },
+  {
+    "name": "Wheel 1",
+    "path": "/Jumping Robot Version 2 v6/Wheel 1",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      120.00000019999999,
+      120.00000019999999,
+      19.999999477819806
+    ],
+    "volume_cm3": 14.060805829265457,
+    "valid": true
+  },
+  {
+    "name": "Motor Gear 1",
+    "path": "/Jumping Robot Version 2 v6/Motor Gear 1",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      11.087941826788636,
+      10.880034868604241,
+      7.000000200000002
+    ],
+    "volume_cm3": 0.3498068938735584,
+    "valid": true
+  },
+  {
+    "name": "Wheel Spacer 1",
+    "path": "/Jumping Robot Version 2 v6/Wheel Spacer 1",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      7.500000000000028,
+      7.5,
+      4.0000000000000995
+    ],
+    "volume_cm3": 0.09817477042468102,
+    "valid": true
+  },
+  {
+    "name": "Spring Tensioner 11",
+    "path": "/Jumping Robot Version 2 v6/Spring Tensioner 11",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      6.000000000000004,
+      16.000000000000007,
+      16.0
+    ],
+    "volume_cm3": 0.6361194535211123,
+    "valid": true
+  },
+  {
+    "name": "Spring Tensioner 1",
+    "path": "/Jumping Robot Version 2 v6/Spring Tensioner 1",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      6.000000000000004,
+      16.000000000000007,
+      16.0
+    ],
+    "volume_cm3": 0.6361194535211125,
+    "valid": true
+  },
+  {
+    "name": "Spring Tensioner 2",
+    "path": "/Jumping Robot Version 2 v6/Spring Tensioner 2",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      6.0,
+      14.500000000000007,
+      14.5
+    ],
+    "volume_cm3": 0.4205807164993314,
+    "valid": true
+  },
+  {
+    "name": "Spring Tensioner 22",
+    "path": "/Jumping Robot Version 2 v6/Spring Tensioner 22",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      6.0,
+      14.500000000000007,
+      14.5
+    ],
+    "volume_cm3": 0.42058071649933154,
+    "valid": true
+  },
+  {
+    "name": "(Old) Frame",
+    "path": "/Jumping Robot Version 2 v6/(Old) Frame",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      47.58973685376,
+      53.1441735411376,
+      65.60000166462203
+    ],
+    "volume_cm3": 25.608471847901725,
+    "valid": true
+  },
+  {
+    "name": "(Old) Servo Gear Tensioner",
+    "path": "/Jumping Robot Version 2 v6/(Old) Servo Gear Tensioner",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      40.395182411917006,
+      17.111182263920607,
+      12.000000200000219
+    ],
+    "volume_cm3": 3.943738275189695,
+    "valid": true
+  },
+  {
+    "name": "(Old) Motor Mount 2",
+    "path": "/Jumping Robot Version 2 v6/(Old) Motor Mount 2",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      53.50130154546798,
+      37.84009719351679,
+      26.100000199997965
+    ],
+    "volume_cm3": 10.732535999006627,
+    "valid": true
+  },
+  {
+    "name": "(Old) Motor Mount 1",
+    "path": "/Jumping Robot Version 2 v6/(Old) Motor Mount 1",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      53.50130154546798,
+      37.84009719351679,
+      26.10000019999796
+    ],
+    "volume_cm3": 10.710851426404915,
+    "valid": true
+  },
+  {
+    "name": "(Old) Servo Mount ",
+    "path": "/Jumping Robot Version 2 v6/(Old) Servo Mount ",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      50.17621061121896,
+      50.267100744880906,
+      27.60000019999999
+    ],
+    "volume_cm3": 9.070914566750433,
+    "valid": true
+  },
+  {
+    "name": "6x208mm  Aluminium Pipe 1",
+    "path": "/Jumping Robot Version 2 v6/6x208mm  Aluminium Pipe 1",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      208.0000002,
+      6.000000200000002,
+      6.000000200000006
+    ],
+    "volume_cm3": 3.2384418832947643,
+    "valid": true
+  },
+  {
+    "name": "6x208mm Aluminium Pipe 2",
+    "path": "/Jumping Robot Version 2 v6/6x208mm Aluminium Pipe 2",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      208.0000002,
+      6.000000200000002,
+      6.000000200000006
+    ],
+    "volume_cm3": 3.2384418832947657,
+    "valid": true
+  },
+  {
+    "name": "6x82mm Aluminium Pipe Middle",
+    "path": "/Jumping Robot Version 2 v6/6x82mm Aluminium Pipe Middle",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      82.00000019999999,
+      6.000000200000002,
+      6.000000200000003
+    ],
+    "volume_cm3": 1.259233364350216,
+    "valid": true
+  },
+  {
+    "name": "5x63mm Aluminium Rod  1",
+    "path": "/Jumping Robot Version 2 v6/5x63mm Aluminium Rod  1",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      5.0,
+      5.0,
+      63.20000000000001
+    ],
+    "volume_cm3": 1.2409290981679684,
+    "valid": true
+  },
+  {
+    "name": "5x63mm Aluminium Rod  2",
+    "path": "/Jumping Robot Version 2 v6/5x63mm Aluminium Rod  2",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      5.0,
+      5.0,
+      63.2
+    ],
+    "volume_cm3": 1.2409290981679688,
+    "valid": true
+  },
+  {
+    "name": "Servo Pin 5x16mm",
+    "path": "/Jumping Robot Version 2 v6/Servo Pin 5x16mm",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      5.0,
+      5.0,
+      16.000000000000007
+    ],
+    "volume_cm3": 0.31415926535897926,
+    "valid": true
+  },
+  {
+    "name": "Rack Mount Rod 3x18mm",
+    "path": "/Jumping Robot Version 2 v6/Rack Mount Rod 3x18mm",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      3.0,
+      2.999999999999993,
+      18.000000000000043
+    ],
+    "volume_cm3": 0.12723450247038687,
+    "valid": true
+  },
+  {
+    "name": "Back Mount Rod 3x62mm",
+    "path": "/Jumping Robot Version 2 v6/Back Mount Rod 3x62mm",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      3.000000000000039,
+      3.0000000000000924,
+      62.0000000000001
+    ],
+    "volume_cm3": 0.4382521751757769,
+    "valid": true
+  },
+  {
+    "name": "5x41mm Wheel Axle 1",
+    "path": "/Jumping Robot Version 2 v6/5x41mm Wheel Axle 1",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      5.000000200000983,
+      5.000000200000002,
+      41.00000010000002
+    ],
+    "volume_cm3": 0.7889690998722574,
+    "valid": true
+  },
+  {
+    "name": "5x41mm Wheel Axle 2",
+    "path": "/Jumping Robot Version 2 v6/5x41mm Wheel Axle 2",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      5.000000200000045,
+      5.000000200000002,
+      41.00000010000001
+    ],
+    "volume_cm3": 0.7889690998722575,
+    "valid": true
+  },
+  {
+    "name": "3x12mm Brake Pin",
+    "path": "/Jumping Robot Version 2 v6/3x12mm Brake Pin",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      3.0,
+      2.9999999999999787,
+      12.0
+    ],
+    "volume_cm3": 0.08482300164692355,
+    "valid": true
+  },
+  {
+    "name": "3x12mm Brake 2 Pin",
+    "path": "/Jumping Robot Version 2 v6/3x12mm Brake 2 Pin",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      3.0,
+      2.9999999999999787,
+      11.999999999999998
+    ],
+    "volume_cm3": 0.08482300164692355,
+    "valid": true
+  },
+  {
+    "name": "Spring ",
+    "path": "/Jumping Robot Version 2 v6/Spring ",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      176.20000009999998,
+      14.102118734162666,
+      14.102118734162676
+    ],
+    "volume_cm3": 1.6052085575660466,
+    "valid": true
+  },
+  {
+    "name": "Spring 2",
+    "path": "/Jumping Robot Version 2 v6/Spring 2",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      176.20000009999998,
+      14.102119591019367,
+      14.102119591019363
+    ],
+    "volume_cm3": 1.605208325869611,
+    "valid": true
+  },
+  {
+    "name": "Motor 2",
+    "path": "/Jumping Robot Version 2 v6/Motor 2",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      12.000000000001165,
+      10.00000000000015,
+      34.00000000000012
+    ],
+    "volume_cm3": 2.9286479165549384,
+    "valid": true
+  },
+  {
+    "name": "Motor 1",
+    "path": "/Jumping Robot Version 2 v6/Motor 1",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      12.000000000001165,
+      10.00000000000015,
+      34.00000000000012
+    ],
+    "volume_cm3": 2.928647916554938,
+    "valid": true
+  },
+  {
+    "name": "Back Rubber",
+    "path": "/Jumping Robot Version 2 v6/Back Rubber",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      8.300000200000012,
+      16.25006032227361,
+      12.000000200000022
+    ],
+    "volume_cm3": 0.05332563003602274,
+    "valid": true
+  },
+  {
+    "name": "2S LiPo",
+    "path": "/Jumping Robot Version 2 v6/2S LiPo",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      55.00000000000004,
+      14.000000783375341,
+      30.00000026112513
+    ],
+    "volume_cm3": 22.371318224527123,
+    "valid": true
+  },
+  {
+    "name": "Tire 1",
+    "path": "/Jumping Robot Version 2 v6/Tire 1",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      122.0,
+      122.0,
+      12.000000000000256
+    ],
+    "volume_cm3": 4.561592533012386,
+    "valid": true
+  },
+  {
+    "name": "Tire 2",
+    "path": "/Jumping Robot Version 2 v6/Tire 2",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      122.0,
+      122.0,
+      12.000000000000327
+    ],
+    "volume_cm3": 4.561592533011633,
+    "valid": true
+  },
+  {
+    "name": "Servo",
+    "path": "/Jumping Robot Version 2 v6/Servo",
+    "solids": 1,
+    "bbox_xyz_mm": [
+      49.80767361793113,
+      49.80767361793155,
+      47.199999999999406
+    ],
+    "volume_cm3": 31.74236999109943,
+    "valid": true
+  }
+]

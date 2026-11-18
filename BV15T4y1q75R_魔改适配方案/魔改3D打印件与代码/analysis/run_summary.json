@@ -1,0 +1,28 @@
+{
+  "scale": 0.6,
+  "densities_g_cm3": {
+    "PLA": 1.24,
+    "PETG": 1.27
+  },
+  "source_stl_count": 13,
+  "step_total_solids": 44,
+  "step_bbox_xyz_mm": [
+    228.78914111082,
+    122.0,
+    168.0
+  ],
+  "step_volume_cm3": 314.9385633571548,
+  "export_stl_count": 18,
+  "source_step_sha256": "07775bb56cb950cdd93b9da2202edc5489fe24903c43fd13552d2effa5dc936a",
+  "metrology_note": "Geometry-derived, not physical weighing. STL unitless: mm follows matching STEP millimetre units.",
+  "original_retained8_volume_cm3": 134.19894669076754,
+  "printed_mass_actual_g": null,
+  "assembly_validation": "not performed; wheel configuration selected, motor/hub fit and physical mass pending",
+  "assembly_profile": "dual_spiral_wheel_full_2026-11-18",
+  "mass_target_range_g": [
+    126,
+    132
+  ],
+  "mass_target_g": 129,
+  "assembly_printed_solid_PLA_est_g": 53.365869997339935
+}

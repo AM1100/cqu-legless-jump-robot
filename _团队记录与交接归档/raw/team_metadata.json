@@ -1,0 +1,54 @@
+{
+  "id": "01a1e99f-c0ec-7960-8fd1-df2ff5201e32",
+  "user_id": "user_01a1d4f5-92dc-7062-b225-880a924f573e",
+  "name": "自然设计",
+  "workspace": "/home/yang/自然设计",
+  "workspace_mode": "shared",
+  "agents": "[{\"slot_id\":\"01a1e99f-c0ec-7960-8fd1-df31374d1362\",\"name\":\"4 Carbon\",\"role\":\"lead\",\"conversation_id\":\"dd0e34cb\",\"backend\":\"antigravity\",\"model\":\"gemini-4-carbon-medium\",\"assistant_id\":\"bare:a9f3c21e\"},{\"slot_id\":\"01a1e99f-c15b-7233-87d7-305665cf9dbd\",\"name\":\"6.1 sol\",\"role\":\"teammate\",\"conversation_id\":\"41ad1a25\",\"backend\":\"codex\",\"model\":\"gpt-6.2-sol\",\"assistant_id\":\"bare:8e1acf31\"},{\"slot_id\":\"01a1e99f-c1a5-7b61-9f6f-9e2c0abe14a8\",\"name\":\"4 Hydrogen\",\"role\":\"teammate\",\"conversation_id\":\"0dca061f\",\"backend\":\"aionrs\",\"model\":\"gemini-4-hydrogen-xhigh(xhigh)\",\"assistant_id\":\"bare:632f31d2\"},{\"slot_id\":\"01a1e9a1-108b-7c51-a7c3-0b805cf8234b\",\"name\":\"v4.1 Flash\",\"role\":\"teammate\",\"conversation_id\":\"236dedac\",\"backend\":\"aionrs\",\"model\":\"cn:deepseek-v4.1-flash@high\",\"assistant_id\":\"bare:632f31d2\"}]",
+  "lead_agent_id": "01a1e99f-c0ec-7960-8fd1-df31374d1362",
+  "session_mode": null,
+  "agents_version": "1.0.1",
+  "created_at": 1794920923372,
+  "updated_at": 1794991616337,
+  "project_id": "project_01a1e99f-c141-77e3-bc20-52920745bf90",
+  "folder_id": "folder_01a1e99f-c13c-7611-8ed2-417a8c12e12e",
+  "archived_at": null,
+  "agents_parsed": [
+    {
+      "slot_id": "01a1e99f-c0ec-7960-8fd1-df31374d1362",
+      "name": "4 Carbon",
+      "role": "lead",
+      "conversation_id": "dd0e34cb",
+      "backend": "antigravity",
+      "model": "gemini-4-carbon-medium",
+      "assistant_id": "bare:a9f3c21e"
+    },
+    {
+      "slot_id": "01a1e99f-c15b-7233-87d7-305665cf9dbd",
+      "name": "6.1 sol",
+      "role": "teammate",
+      "conversation_id": "41ad1a25",
+      "backend": "codex",
+      "model": "gpt-6.2-sol",
+      "assistant_id": "bare:8e1acf31"
+    },
+    {
+      "slot_id": "01a1e99f-c1a5-7b61-9f6f-9e2c0abe14a8",
+      "name": "4 Hydrogen",
+      "role": "teammate",
+      "conversation_id": "0dca061f",
+      "backend": "aionrs",
+      "model": "gemini-4-hydrogen-xhigh(xhigh)",
+      "assistant_id": "bare:632f31d2"
+    },
+    {
+      "slot_id": "01a1e9a1-108b-7c51-a7c3-0b805cf8234b",
+      "name": "v4.1 Flash",
+      "role": "teammate",
+      "conversation_id": "236dedac",
+      "backend": "aionrs",
+      "model": "cn:deepseek-v4.1-flash@high",
+      "assistant_id": "bare:632f31d2"
+    }
+  ]
+}

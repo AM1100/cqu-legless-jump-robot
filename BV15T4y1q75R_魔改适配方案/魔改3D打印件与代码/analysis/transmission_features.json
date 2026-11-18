@@ -1,0 +1,249 @@
+{
+  "Main_Gear_z-13": {
+    "center_xy_mm": [
+      178,
+      -41.15
+    ],
+    "section_z_mm": -13,
+    "section_rmin_mm": 17.295469262215605,
+    "section_rmax_mm": 21.798626944854906,
+    "detected_teeth": 14,
+    "tip_angles_deg": [
+      6.65,
+      32.4,
+      58.1,
+      83.8,
+      109.55000000000001,
+      135.25,
+      160.95000000000002,
+      186.65,
+      212.4,
+      238.1,
+      263.8,
+      289.55,
+      315.25000000000006,
+      340.95
+    ],
+    "tip_angles_note": "Raw local maxima on rounded tooth tips; not unique tooth center phases or a safe-stop window"
+  },
+  "Main_Gear_z0": {
+    "center_xy_mm": [
+      178,
+      -41.15
+    ],
+    "section_z_mm": 0,
+    "section_rmin_mm": 17.295319843371118,
+    "section_rmax_mm": 21.79699025614643,
+    "detected_teeth": 10,
+    "tip_angles_deg": [
+      12.4,
+      37.85,
+      63.550000000000004,
+      89.25000000000001,
+      118.05000000000001,
+      140.7,
+      166.4,
+      195.75,
+      217.85000000000002,
+      243.55
+    ],
+    "tip_angles_note": "Raw local maxima on rounded tooth tips; not unique tooth center phases or a safe-stop window"
+  },
+  "Second_Gear_z-25": {
+    "center_xy_mm": [
+      148.8,
+      -35.15
+    ],
+    "section_z_mm": -25,
+    "section_rmin_mm": 15.44306739378214,
+    "section_rmax_mm": 18.820489962165748,
+    "detected_teeth": 20,
+    "tip_angles_deg": [
+      8.65,
+      26.650000000000002,
+      44.650000000000006,
+      62.650000000000006,
+      80.65,
+      98.65,
+      116.64999999999999,
+      134.65,
+      152.65,
+      170.65,
+      188.65,
+      206.65000000000003,
+      224.65000000000003,
+      242.65000000000003,
+      260.65000000000003,
+      278.65000000000003,
+      296.65000000000003,
+      314.65000000000003,
+      332.65000000000003,
+      350.65000000000003
+    ],
+    "tip_angles_note": "Raw local maxima on rounded tooth tips; not unique tooth center phases or a safe-stop window"
+  },
+  "Second_Gear_z-13": {
+    "center_xy_mm": [
+      148.8,
+      -35.15
+    ],
+    "section_z_mm": -13,
+    "section_rmin_mm": 7.396128661870885,
+    "section_rmax_mm": 11.897145489287547,
+    "detected_teeth": 7,
+    "tip_angles_deg": [
+      36.85,
+      88.25,
+      139.70000000000002,
+      191.1,
+      242.55000000000004,
+      293.95000000000005,
+      345.4
+    ],
+    "tip_angles_note": "Raw local maxima on rounded tooth tips; not unique tooth center phases or a safe-stop window"
+  },
+  "Servo_Gear_z-25": {
+    "center_xy_mm": [
+      119.40654,
+      -32.72241
+    ],
+    "section_z_mm": -25,
+    "section_rmin_mm": 10.24892780959055,
+    "section_rmax_mm": 13.62429525632923,
+    "detected_teeth": 14,
+    "tip_angles_deg": [
+      15.35,
+      41.050000000000004,
+      67.25,
+      92.0,
+      118.2,
+      144.4,
+      171.10000000000002,
+      195.35000000000002,
+      221.55,
+      247.25,
+      272.0,
+      298.20000000000005,
+      324.40000000000003,
+      349.15000000000003
+    ],
+    "tip_angles_note": "Raw local maxima on rounded tooth tips; not unique tooth center phases or a safe-stop window"
+  },
+  "Motor_Gear_z-62": {
+    "center_xy_mm": [
+      139,
+      -47.5
+    ],
+    "section_z_mm": -62,
+    "section_rmin_mm": 2.811731982292221,
+    "section_rmax_mm": 5.625000564370552,
+    "detected_teeth": 7,
+    "tip_angles_deg": [
+      37.0,
+      90.05000000000001,
+      143.1,
+      192.9,
+      245.95000000000002,
+      290.90000000000003,
+      347.20000000000005
+    ],
+    "tip_angles_note": "Raw local maxima on rounded tooth tips; not unique tooth center phases or a safe-stop window"
+  },
+  "Rack": {
+    "section_z_mm": 0,
+    "tooth_tip_plateaus_x_mm": [
+      [
+        53.14226531982422,
+        68.34278106689453
+      ],
+      [
+        75.42350006103516,
+        77.22854614257812
+      ],
+      [
+        84.30926513671875,
+        86.11431121826172
+      ],
+      [
+        93.19503021240234,
+        95.00007629394531
+      ],
+      [
+        102.08079528808594,
+        103.8858413696289
+      ],
+      [
+        110.96656036376953,
+        112.7716064453125
+      ],
+      [
+        119.85232543945312,
+        121.6573715209961
+      ],
+      [
+        128.7380970027039,
+        130.54313773850703
+      ],
+      [
+        137.6238555908203,
+        139.4289093017578
+      ],
+      [
+        146.50962829589844,
+        148.31466674804688
+      ],
+      [
+        155.3953857421875,
+        157.200439453125
+      ],
+      [
+        164.28115844726562,
+        166.08619689941406
+      ],
+      [
+        173.1669158935547,
+        174.9719696044922
+      ]
+    ],
+    "periodic_teeth_count": 12,
+    "tooth_centers_x_mm": [
+      76.32602310180664,
+      85.21178817749023,
+      94.09755325317383,
+      102.98331832885742,
+      111.86908340454102,
+      120.75484848022461,
+      129.64061737060547,
+      138.52638244628906,
+      147.41214752197266,
+      156.29791259765625,
+      165.18367767333984,
+      174.06944274902344
+    ],
+    "pitch_mean_mm": 8.885765422474254,
+    "pitch_min_mm": 8.885765075683594,
+    "pitch_max_mm": 8.88576889038086,
+    "first_to_last_tooth_center_mm": 97.7434196472168,
+    "nominal_main_active_teeth": 10,
+    "nominal_loading_stroke_mm": 88.85765422474253,
+    "actual_usable_stroke": "TBD: requires assembled motion/contact test; rack length is not stroke"
+  },
+  "gearing_inference": {
+    "loading_input_teeth": 14,
+    "intermediate_large_teeth": 20,
+    "intermediate_small_teeth": 7,
+    "main_nominal_teeth": 14,
+    "main_central_active_teeth": 10,
+    "main_missing_pitch_slots": 4,
+    "nominal_missing_angle_deg": 102.85714285714286,
+    "loading_ratio": 2.857142857142857,
+    "rack_transverse_module_mm": 2.8284269802836426,
+    "normal_module_large_pair_inferred_mm": 1.5,
+    "helix_large_pair_inferred_deg": 30,
+    "normal_module_main_pair_inferred_mm": 2,
+    "helix_main_pair_inferred_deg": 45,
+    "wheel_motor_pinion_teeth": 7,
+    "wheel_motor_pinion_module_inferred_mm": 1.25,
+    "note": "Module/helix inferred from tip/root radii, tooth count, pitch and axial section phase; not embedded CAD parameters. Safe stop angle is not established."
+  }
+}

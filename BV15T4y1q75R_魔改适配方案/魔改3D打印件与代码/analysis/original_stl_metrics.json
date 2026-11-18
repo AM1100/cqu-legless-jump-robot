@@ -1,0 +1,529 @@
+[
+  {
+    "file": "Back.stl",
+    "sha256": "15dd25a7e5abef643075cfbb85579083e190429cc3b590eb81df7457462b197c",
+    "bbox_xyz_mm": [
+      37.0,
+      15.999996185302734,
+      62.00000190734863
+    ],
+    "bounds_mm": [
+      [
+        -23.0,
+        -71.44999694824219,
+        -29.649999618530273
+      ],
+      [
+        14.0,
+        -55.45000076293945,
+        32.35000228881836
+      ]
+    ],
+    "vertices": 6382,
+    "triangles": 12788,
+    "watertight": false,
+    "winding_consistent": true,
+    "nonmanifold_edges": 1,
+    "signed_volume_cm3": 10.92898046976824,
+    "surface_cm2": 63.04997742263659,
+    "solid_mass_est_g": {
+      "PLA": 13.551935782512617,
+      "PETG": 13.879805196605664
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 2.7103871565025237,
+      "PETG": 2.775961039321133
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 7.714033364762962,
+      "PETG": 7.900663204233034
+    },
+    "step_volume_cm3": 10.9291081264505
+  },
+  {
+    "file": "Frame_V2.stl",
+    "sha256": "12a25cfa978de70b6d4642c32c81a0f6168b19e883921b2ee63148e7d04963d7",
+    "bbox_xyz_mm": [
+      81.86312866210938,
+      86.57396537065506,
+      113.96000289916992
+    ],
+    "bounds_mm": [
+      [
+        101.63687133789062,
+        -87.44999694824219,
+        -55.61000061035156
+      ],
+      [
+        183.5,
+        -0.8760315775871277,
+        58.35000228881836
+      ]
+    ],
+    "vertices": 6552,
+    "triangles": 13156,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 56.02396994085299,
+    "surface_cm2": 278.51061991048823,
+    "solid_mass_est_g": {
+      "PLA": 69.46972272665771,
+      "PETG": 71.1504418248833
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 13.893944545331543,
+      "PETG": 14.23008836497666
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 35.996547341427885,
+      "PETG": 36.867431551301145
+    },
+    "step_volume_cm3": 56.017887721503804
+  },
+  {
+    "file": "Main_Gear.stl",
+    "sha256": "79ec7f423ad492dd8feb9644482dea24cfae7f2fc6c0c331f9a0c9092087ea90",
+    "bbox_xyz_mm": [
+      43.59735107421875,
+      43.579607009887695,
+      31.199999809265137
+    ],
+    "bounds_mm": [
+      [
+        156.20132446289062,
+        -62.93110656738281,
+        -14.249999046325684
+      ],
+      [
+        199.79867553710938,
+        -19.351499557495117,
+        16.950000762939453
+      ]
+    ],
+    "vertices": 44575,
+    "triangles": 89150,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 35.87061114797071,
+    "surface_cm2": 97.18589650248407,
+    "solid_mass_est_g": {
+      "PLA": 44.47955782348368,
+      "PETG": 45.555676157922804
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 8.895911564696737,
+      "PETG": 9.11113523158456
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 16.60858431113387,
+      "PETG": 17.010404899306465
+    },
+    "step_volume_cm3": 35.876394257204176
+  },
+  {
+    "file": "Motor_Gear.stl",
+    "sha256": "c37da52fe613197423b62ecaa6e439a8b9201adc1b24772e02bd9877e6092f1f",
+    "bbox_xyz_mm": [
+      11.087936401367188,
+      10.88003158569336,
+      7.0
+    ],
+    "bounds_mm": [
+      [
+        133.43028259277344,
+        -52.755035400390625,
+        -65.54000091552734
+      ],
+      [
+        144.51821899414062,
+        -41.875003814697266,
+        -58.540000915527344
+      ]
+    ],
+    "vertices": 1975,
+    "triangles": 3950,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 0.34971575906246954,
+    "surface_cm2": 5.557577518540357,
+    "solid_mass_est_g": {
+      "PLA": 0.43364754123746224,
+      "PETG": 0.4441390140093363
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.08672950824749245,
+      "PETG": 0.08882780280186726
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 0.43364754123746224,
+      "PETG": 0.4441390140093363
+    },
+    "step_volume_cm3": 0.3498068938735584
+  },
+  {
+    "file": "Rack.stl",
+    "sha256": "3964c6fb5db60a22f2f5d253b74760b765f5a815f4b3ae579f89cb1b8e10cd66",
+    "bbox_xyz_mm": [
+      129.14421844482422,
+      8.5,
+      18.0
+    ],
+    "bounds_mm": [
+      [
+        50.14226531982422,
+        -67.65304565429688,
+        -7.653045654296875
+      ],
+      [
+        179.28648376464844,
+        -59.153045654296875,
+        10.346954345703125
+      ]
+    ],
+    "vertices": 627,
+    "triangles": 1258,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 13.931304492804008,
+    "surface_cm2": 80.85271086765428,
+    "solid_mass_est_g": {
+      "PLA": 17.27481757107697,
+      "PETG": 17.69275670586109
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 3.454963514215394,
+      "PETG": 3.538551341172218
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 9.871434648672437,
+      "PETG": 10.110259680495158
+    },
+    "step_volume_cm3": 13.930395858246818
+  },
+  {
+    "file": "Second_Gear.stl",
+    "sha256": "7ae3a1e23d75f50fd36bec724271fc3968a857585492dea0be2a051c796bc9bb",
+    "bbox_xyz_mm": [
+      37.6405029296875,
+      37.64050102233887,
+      43.20000076293945
+    ],
+    "bounds_mm": [
+      [
+        129.97975158691406,
+        -53.97024917602539,
+        -26.25
+      ],
+      [
+        167.62025451660156,
+        -16.329748153686523,
+        16.950000762939453
+      ]
+    ],
+    "vertices": 38665,
+    "triangles": 77330,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 16.03780979250681,
+    "surface_cm2": 73.61522750548362,
+    "solid_mass_est_g": {
+      "PLA": 19.886884142708443,
+      "PETG": 20.36801843648365
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 3.9773768285416886,
+      "PETG": 4.07360368729673
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 9.819481283376868,
+      "PETG": 10.057049378942438
+    },
+    "step_volume_cm3": 16.040708561297755
+  },
+  {
+    "file": "Servo_Gear.stl",
+    "sha256": "9b6422890a116fc778e3ef20d4f3d5aae128e92b93cac69de539aa75ed23396f",
+    "bbox_xyz_mm": [
+      27.248512268066406,
+      27.24867820739746,
+      10.0
+    ],
+    "bounds_mm": [
+      [
+        105.78227996826172,
+        -46.346744537353516,
+        -26.25
+      ],
+      [
+        133.03079223632812,
+        -19.098066329956055,
+        -16.25
+      ]
+    ],
+    "vertices": 19360,
+    "triangles": 38736,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 4.268520635178474,
+    "surface_cm2": 27.111980196447902,
+    "solid_mass_est_g": {
+      "PLA": 5.292965587621308,
+      "PETG": 5.421021206676662
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 1.0585931175242616,
+      "PETG": 1.0842042413353326
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 3.210199865914367,
+      "PETG": 3.287865991702618
+    },
+    "step_volume_cm3": 4.268612128830239
+  },
+  {
+    "file": "Spring_Tensioner_1.stl",
+    "sha256": "8833942f496645bfe2ed6a5c544f1a94fbe2d0eff8ca8a0a71197e475b3ff243",
+    "bbox_xyz_mm": [
+      6.000000000000004,
+      15.999652862548828,
+      15.99913501739502
+    ],
+    "bounds_mm": [
+      [
+        -6.0,
+        -71.44999694824219,
+        -29.649219512939453
+      ],
+      [
+        4.440892098500626e-15,
+        -55.45034408569336,
+        -13.650084495544434
+      ]
+    ],
+    "vertices": 820,
+    "triangles": 1640,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 0.636022480886139,
+    "surface_cm2": 7.20921661417058,
+    "solid_mass_est_g": {
+      "PLA": 0.7886678762988123,
+      "PETG": 0.8077485507253965
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.15773357525976248,
+      "PETG": 0.16154971014507932
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 0.7298570057603397,
+      "PETG": 0.7475148365448641
+    }
+  },
+  {
+    "file": "Spring_Tensioner_2.stl",
+    "sha256": "2683d3c36c1b83038be2a41ea94d38882fd6211c38caac25948b7ed1236deb9e",
+    "bbox_xyz_mm": [
+      6.0,
+      14.499462127685547,
+      14.498930931091309
+    ],
+    "bounds_mm": [
+      [
+        163.0,
+        -70.6997299194336,
+        -28.89999771118164
+      ],
+      [
+        169.0,
+        -56.20026779174805,
+        -14.401066780090332
+      ]
+    ],
+    "vertices": 1029,
+    "triangles": 2058,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 0.4205326069161565,
+    "surface_cm2": 6.208144555878383,
+    "solid_mass_est_g": {
+      "PLA": 0.521460432576034,
+      "PETG": 0.5340764107835188
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.10429208651520681,
+      "PETG": 0.10681528215670376
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 0.521460432576034,
+      "PETG": 0.5340764107835188
+    }
+  },
+  {
+    "file": "Wheel_1.stl",
+    "sha256": "2bb2090a37d8c344d955df3a3d5a2306ad77e1acddccf713d2707cb9b6ed1ce8",
+    "bbox_xyz_mm": [
+      119.99999237060547,
+      119.98287987709045,
+      20.000003814697266
+    ],
+    "bounds_mm": [
+      [
+        84.48914337158203,
+        -116.59539031982422,
+        -79.55000305175781
+      ],
+      [
+        204.4891357421875,
+        3.3874895572662354,
+        -59.54999923706055
+      ]
+    ],
+    "vertices": 3622,
+    "triangles": 7276,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 14.056818631354313,
+    "surface_cm2": 252.46098715400456,
+    "solid_mass_est_g": {
+      "PLA": 17.430455102879346,
+      "PETG": 17.85215966181998
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 3.4860910205758695,
+      "PETG": 3.570431932363996
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 17.430455102879346,
+      "PETG": 17.85215966181998
+    }
+  },
+  {
+    "file": "Wheel_2.stl",
+    "sha256": "c1c43c84ff517e1a56fe96e9e935584bbbb5e42640ce484a149e597f11684242",
+    "bbox_xyz_mm": [
+      119.99999237060547,
+      119.98287987709045,
+      20.0
+    ],
+    "bounds_mm": [
+      [
+        84.48914337158203,
+        -116.59539031982422,
+        62.349998474121094
+      ],
+      [
+        204.4891357421875,
+        3.3874895572662354,
+        82.3499984741211
+      ]
+    ],
+    "vertices": 3622,
+    "triangles": 7276,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 14.056776655849962,
+    "surface_cm2": 252.46094850803246,
+    "solid_mass_est_g": {
+      "PLA": 17.430403053253954,
+      "PETG": 17.852106352929454
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 3.486080610650791,
+      "PETG": 3.570421270585891
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 17.430403053253954,
+      "PETG": 17.852106352929454
+    }
+  },
+  {
+    "file": "Wheel_Spacer.stl",
+    "sha256": "01914f3d5ab4c3f0bf73380537b3259f6ce1c30da21f96def112a29bf59f4d26",
+    "bbox_xyz_mm": [
+      7.499969482421875,
+      7.499809265136719,
+      4.0
+    ],
+    "bounds_mm": [
+      [
+        140.73916625976562,
+        -60.35390090942383,
+        58.29999923706055
+      ],
+      [
+        148.2391357421875,
+        -52.85409164428711,
+        62.29999923706055
+      ]
+    ],
+    "vertices": 987,
+    "triangles": 1974,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 0.09816761676590734,
+    "surface_cm2": 2.061516005140009,
+    "solid_mass_est_g": {
+      "PLA": 0.12172784478972509,
+      "PETG": 0.12467287329270232
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.02434556895794502,
+      "PETG": 0.024934574658540466
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 0.12172784478972509,
+      "PETG": 0.12467287329270232
+    }
+  },
+  {
+    "file": "brake.stl",
+    "sha256": "69d07d9aa25d1b3c954e1e9a383c74c94c5341de4b1d4de31b9e45757353adb2",
+    "bbox_xyz_mm": [
+      9.199996948242188,
+      11.999034881591797,
+      12.0
+    ],
+    "bounds_mm": [
+      [
+        183.8000030517578,
+        -69.44903564453125,
+        18.350000381469727
+      ],
+      [
+        193.0,
+        -57.45000076293945,
+        30.350000381469727
+      ]
+    ],
+    "vertices": 1683,
+    "triangles": 3374,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 0.7371777903168744,
+    "surface_cm2": 7.194465457189404,
+    "solid_mass_est_g": {
+      "PLA": 0.9141004599929242,
+      "PETG": 0.9362157937024305
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.18282009199858484,
+      "PETG": 0.1872431587404861
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 0.7537728706811359,
+      "PETG": 0.7720093111008407
+    }
+  }
+]

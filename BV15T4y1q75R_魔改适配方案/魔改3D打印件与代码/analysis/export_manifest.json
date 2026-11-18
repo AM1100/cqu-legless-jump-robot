@@ -1,0 +1,903 @@
+[
+  {
+    "file": "Main_Gear_S060.stl",
+    "source": "Main_Gear.stl",
+    "source_route": "original STL",
+    "scale": 0.6,
+    "print_translation_after_scale_mm": [
+      -106.8,
+      24.684781837463376,
+      8.54999942779541
+    ],
+    "role": "正式装机：完整传动层/中央缺齿层；实装受载/停车窗口待验证",
+    "bbox_xyz_mm": [
+      26.158411026000977,
+      26.147764205932617,
+      18.719999313354492
+    ],
+    "bounds_mm": [
+      [
+        -13.079205513000488,
+        -13.073882102966309,
+        0.0
+      ],
+      [
+        13.079205513000488,
+        13.073882102966309,
+        18.719999313354492
+      ]
+    ],
+    "vertices": 44575,
+    "triangles": 89150,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 7.748051720361493,
+    "surface_cm2": 34.98692221694808,
+    "solid_mass_est_g": {
+      "PLA": 9.607584133248253,
+      "PETG": 9.840025684859096
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 1.9215168266496505,
+      "PETG": 1.9680051369718194
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 4.69807897378665,
+      "PETG": 4.81174217476536
+    },
+    "sha256": "eac5b63df213d14ba42c3d0652e7aa2ecd32405a01982f2e46130b40a2f3ada3",
+    "assembly_profile": "dual_spiral_wheel_full_2026-11-18",
+    "assembly_quantity": 1,
+    "physical_mass_measured_g": null
+  },
+  {
+    "file": "Second_Gear_S060.stl",
+    "source": "Second_Gear.stl",
+    "source_route": "original STL",
+    "scale": 0.6,
+    "print_translation_after_scale_mm": [
+      -89.28000183105468,
+      21.089999198913574,
+      15.75
+    ],
+    "role": "正式装机：20/7复合传动；实物轴间距与强度待验证",
+    "bbox_xyz_mm": [
+      22.584300994873047,
+      22.584300994873047,
+      25.920000076293945
+    ],
+    "bounds_mm": [
+      [
+        -11.292150497436523,
+        -11.292150497436523,
+        0.0
+      ],
+      [
+        11.292150497436523,
+        11.292150497436523,
+        25.920000076293945
+      ]
+    ],
+    "vertices": 38665,
+    "triangles": 77330,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 3.464166943147622,
+    "surface_cm2": 26.501481964832823,
+    "solid_mass_est_g": {
+      "PLA": 4.295567009503051,
+      "PETG": 4.3994920177974794
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.8591134019006103,
+      "PETG": 0.8798984035594959
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 2.962271010629743,
+      "PETG": 3.033938857661108
+    },
+    "sha256": "57adc0d43ca8f7b219e3be7b0396b5de616f24429e514ed1e3d5bdd17080a350",
+    "assembly_profile": "dual_spiral_wheel_full_2026-11-18",
+    "assembly_quantity": 1,
+    "physical_mass_measured_g": null
+  },
+  {
+    "file": "Motor_Gear_S060.stl",
+    "source": "Motor_Gear.stl",
+    "source_route": "original STL",
+    "scale": 0.6,
+    "print_translation_after_scale_mm": [
+      -83.38455047607422,
+      28.389011764526366,
+      39.3240005493164
+    ],
+    "role": "正式装机×2：左右轮驱小齿轮；不作加载输入；Φ1.8缩孔需适配",
+    "bbox_xyz_mm": [
+      6.652761936187744,
+      6.528018951416016,
+      4.199999809265137
+    ],
+    "bounds_mm": [
+      [
+        -3.326380968093872,
+        -3.264009475708008,
+        0.0
+      ],
+      [
+        3.326380968093872,
+        3.264009475708008,
+        4.199999809265137
+      ]
+    ],
+    "vertices": 1975,
+    "triangles": 3950,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 0.0755386005551389,
+    "surface_cm2": 2.000727813320109,
+    "solid_mass_est_g": {
+      "PLA": 0.09366786468837224,
+      "PETG": 0.0959340227050264
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.01873357293767445,
+      "PETG": 0.019186804541005284
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 0.09366786468837224,
+      "PETG": 0.0959340227050264
+    },
+    "sha256": "0bcc3635f98882ba210da73cce98ab90a72bf891ed98b052f97cbc20775bd118",
+    "assembly_profile": "dual_spiral_wheel_full_2026-11-18",
+    "assembly_quantity": 2,
+    "physical_mass_measured_g": null
+  },
+  {
+    "file": "Rack_S060.stl",
+    "source": "Rack.stl",
+    "source_route": "original STL",
+    "scale": 0.6,
+    "print_translation_after_scale_mm": [
+      -68.8286247253418,
+      38.04182739257813,
+      4.591827392578125
+    ],
+    "role": "正式装机：机内加载；不得伸出作为对地蹬杆",
+    "bbox_xyz_mm": [
+      77.48653411865234,
+      5.099999904632568,
+      10.800000190734863
+    ],
+    "bounds_mm": [
+      [
+        -38.74326705932617,
+        -2.549999952316284,
+        0.0
+      ],
+      [
+        38.74326705932617,
+        2.549999952316284,
+        10.800000190734863
+      ]
+    ],
+    "vertices": 627,
+    "triangles": 1258,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 3.009161660024654,
+    "surface_cm2": 29.10697587323556,
+    "solid_mass_est_g": {
+      "PLA": 3.731360458430571,
+      "PETG": 3.8216353082313104
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.7462720916861142,
+      "PETG": 0.7643270616462621
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 3.0562016969860886,
+      "PETG": 3.1301420606228487
+    },
+    "sha256": "328286ecfe072ccc0cb4f9cc181874959ac5b301b137ccf17fba449e8d467a6e",
+    "assembly_profile": "dual_spiral_wheel_full_2026-11-18",
+    "assembly_quantity": 1,
+    "physical_mass_measured_g": null
+  },
+  {
+    "file": "Frame_V2_S060.stl",
+    "source": "Frame_V2.stl",
+    "source_route": "original STL",
+    "scale": 0.6,
+    "print_translation_after_scale_mm": [
+      -85.54106140136719,
+      26.497808557748794,
+      33.36600036621093
+    ],
+    "role": "正式装机候选机架：需改N20轮驱座/主跳跃输出；不是完成合规验收",
+    "bbox_xyz_mm": [
+      49.11787796020508,
+      51.94437789916992,
+      68.3759994506836
+    ],
+    "bounds_mm": [
+      [
+        -24.55893898010254,
+        -25.97218894958496,
+        0.0
+      ],
+      [
+        24.55893898010254,
+        25.97218894958496,
+        68.3759994506836
+      ]
+    ],
+    "vertices": 6552,
+    "triangles": 13156,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 12.101177598435925,
+    "surface_cm2": 100.26382340658975,
+    "solid_mass_est_g": {
+      "PLA": 15.005460222060547,
+      "PETG": 15.368495550013625
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 3.0010920444121094,
+      "PETG": 3.073699110002725
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 10.958029069959071,
+      "PETG": 11.22314267649034
+    },
+    "sha256": "c4e1fe0baac617976a33734ac977cd00cc3f0299998deda1a52053794c310160",
+    "assembly_profile": "dual_spiral_wheel_full_2026-11-18",
+    "assembly_quantity": 1,
+    "physical_mass_measured_g": null
+  },
+  {
+    "file": "Back_S060.stl",
+    "source": "Back.stl",
+    "source_route": "STEP Back remeshed with R0.4mm relief along original tangent/nonmanifold edge X=-15..-6,Y=-71.45,Z=24.35; after scale relief R0.24mm",
+    "scale": 0.6,
+    "print_translation_after_scale_mm": [
+      2.6999999999999993,
+      38.06999931335449,
+      17.789999771118165
+    ],
+    "role": "正式装机候选后支架：保留已记录的切触边卸料修复",
+    "bbox_xyz_mm": [
+      22.200000762939453,
+      9.599997520446777,
+      37.20000076293945
+    ],
+    "bounds_mm": [
+      [
+        -11.100000381469727,
+        -4.799998760223389,
+        0.0
+      ],
+      [
+        11.100000381469727,
+        4.799998760223389,
+        37.20000076293945
+      ]
+    ],
+    "vertices": 6527,
+    "triangles": 13074,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 2.3595820019853293,
+    "surface_cm2": 22.68629176510059,
+    "solid_mass_est_g": {
+      "PLA": 2.9258816824618084,
+      "PETG": 2.9966691425213683
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.5851763364923617,
+      "PETG": 0.5993338285042736
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 2.3855604509707447,
+      "PETG": 2.4432756231716497
+    },
+    "sha256": "8b342f407eb05961529c1ace0b149fadb8e1132050de245e00ae98511c41ee42",
+    "assembly_profile": "dual_spiral_wheel_full_2026-11-18",
+    "assembly_quantity": 1,
+    "physical_mass_measured_g": null
+  },
+  {
+    "file": "Spring_Tensioner_1_S060.stl",
+    "source": "Spring_Tensioner_1.stl",
+    "source_route": "original STL",
+    "scale": 0.6,
+    "print_translation_after_scale_mm": [
+      1.7999999999999985,
+      38.07010231018066,
+      17.789531707763672
+    ],
+    "role": "正式装机锚座×2；弹性件/实际孔需复核",
+    "bbox_xyz_mm": [
+      3.5999999046325684,
+      9.599791526794434,
+      9.599480628967285
+    ],
+    "bounds_mm": [
+      [
+        -1.7999999523162842,
+        -4.799895763397217,
+        0.0
+      ],
+      [
+        1.7999999523162842,
+        4.799895763397217,
+        9.599480628967285
+      ]
+    ],
+    "vertices": 820,
+    "triangles": 1640,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 0.13738084885394672,
+    "surface_cm2": 2.5953179125227024,
+    "solid_mass_est_g": {
+      "PLA": 0.17035225257889394,
+      "PETG": 0.17447367804451233
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.03407045051577879,
+      "PETG": 0.034894735608902466
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 0.17035225257889394,
+      "PETG": 0.17447367804451233
+    },
+    "sha256": "45a9fa4ea2330371e3fddfa79540c44051521886430f318eafbd43f257f7609c",
+    "assembly_profile": "dual_spiral_wheel_full_2026-11-18",
+    "assembly_quantity": 2,
+    "physical_mass_measured_g": null
+  },
+  {
+    "file": "Spring_Tensioner_2_S060.stl",
+    "source": "Spring_Tensioner_2.stl",
+    "source_route": "original STL",
+    "scale": 0.6,
+    "print_translation_after_scale_mm": [
+      -99.6,
+      38.06999931335449,
+      17.339998626708983
+    ],
+    "role": "正式装机锚座×2；弹性件/实际孔需复核",
+    "bbox_xyz_mm": [
+      3.5999999046325684,
+      8.699677467346191,
+      8.699358940124512
+    ],
+    "bounds_mm": [
+      [
+        -1.7999999523162842,
+        -4.349838733673096,
+        0.0
+      ],
+      [
+        1.7999999523162842,
+        4.349838733673096,
+        8.699358940124512
+      ]
+    ],
+    "vertices": 1029,
+    "triangles": 2058,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 0.09083504355542264,
+    "surface_cm2": 2.234932016217517,
+    "solid_mass_est_g": {
+      "PLA": 0.11263545400872407,
+      "PETG": 0.11536050531538676
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.022527090801744816,
+      "PETG": 0.023072101063077353
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 0.11263545400872407,
+      "PETG": 0.11536050531538676
+    },
+    "sha256": "5ca573e2582dd1aafeec6ffb96fed1da8158ed91e0fc3c305a18c2cc6f85ea7e",
+    "assembly_profile": "dual_spiral_wheel_full_2026-11-18",
+    "assembly_quantity": 2,
+    "physical_mass_measured_g": null
+  },
+  {
+    "file": "Servo_Gear_S060.stl",
+    "source": "Servo_Gear.stl",
+    "source_route": "original STL",
+    "scale": 0.6,
+    "print_translation_after_scale_mm": [
+      -71.64392166137695,
+      19.63344326019287,
+      15.75
+    ],
+    "role": "备用原孔对照件，不与D孔版重复装机",
+    "bbox_xyz_mm": [
+      16.34910774230957,
+      16.349206924438477,
+      6.0
+    ],
+    "bounds_mm": [
+      [
+        -8.174553871154785,
+        -8.174603462219238,
+        0.0
+      ],
+      [
+        8.174553871154785,
+        8.174603462219238,
+        6.0
+      ]
+    ],
+    "vertices": 19360,
+    "triangles": 38736,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 0.9220004601968459,
+    "surface_cm2": 9.760312858028918,
+    "solid_mass_est_g": {
+      "PLA": 1.143280570644089,
+      "PETG": 1.1709405844499943
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.2286561141288178,
+      "PETG": 0.23418811688999885
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 1.0032345425419926,
+      "PETG": 1.0275063459905893
+    },
+    "sha256": "b5cfdc0bff9d7d9c504a84954819d1f12f584b41d23654ff68782889aae078d0",
+    "assembly_profile": "dual_spiral_wheel_full_2026-11-18",
+    "assembly_quantity": 0,
+    "physical_mass_measured_g": null
+  },
+  {
+    "file": "Servo_Gear_S060_N20_D3p2.stl",
+    "source": "Servo_Gear_S060.stl; hub filled and D bore recut",
+    "role": "正式装机加载输入：Φ3.2D孔，平边X=1.1；轴长/固持待验证",
+    "bbox_xyz_mm": [
+      16.34910774230957,
+      16.349206924438477,
+      6.0
+    ],
+    "bounds_mm": [
+      [
+        -8.174553871154785,
+        -8.174603462219238,
+        0.0
+      ],
+      [
+        8.174553871154785,
+        8.174603462219238,
+        6.0
+      ]
+    ],
+    "vertices": 18498,
+    "triangles": 36996,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 0.9361603441689198,
+    "surface_cm2": 9.150701952516275,
+    "solid_mass_est_g": {
+      "PLA": 1.1608388267694605,
+      "PETG": 1.1889236370945282
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.2321677653538921,
+      "PETG": 0.23778472741890566
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 0.9583674723055837,
+      "PETG": 0.9815537821194285
+    },
+    "sha256": "b3c4fb3642d2b0391d3c2d5d27d97d7c8bdbbdba1bdfd379540344713cf44f30",
+    "assembly_profile": "dual_spiral_wheel_full_2026-11-18",
+    "assembly_quantity": 1,
+    "physical_mass_measured_g": null
+  },
+  {
+    "file": "Pitch_Prop_TBar.stl",
+    "source": "parametric CadQuery geometry in analyze_generate.py",
+    "role": "正式装机俯仰T杆；双轮为旋转支点，主孔Φ3.2",
+    "bbox_xyz_mm": [
+      42.0,
+      54.0,
+      6.0
+    ],
+    "bounds_mm": [
+      [
+        -5.0,
+        -27.0,
+        0.0
+      ],
+      [
+        37.0,
+        27.0,
+        6.0
+      ]
+    ],
+    "vertices": 2227,
+    "triangles": 4474,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 3.0425556761333046,
+    "surface_cm2": 24.84067491315268,
+    "solid_mass_est_g": {
+      "PLA": 3.7727690384052974,
+      "PETG": 3.864045708689297
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.7545538076810595,
+      "PETG": 0.7728091417378594
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 2.7259097687888563,
+      "PETG": 2.7918591986789094
+    },
+    "sha256": "f44aaa90066d7772da5768704244b27356e6090edc1a8061eb5fc3f956ed213c",
+    "assembly_profile": "dual_spiral_wheel_full_2026-11-18",
+    "assembly_quantity": 1,
+    "physical_mass_measured_g": null
+  },
+  {
+    "file": "Yaw_Skew_Pad.stl",
+    "source": "parametric CadQuery geometry in analyze_generate.py",
+    "role": "非装机备选接触样件；主推方案不依赖跳跃偏航",
+    "bbox_xyz_mm": [
+      14.0,
+      12.0,
+      5.875644207000732
+    ],
+    "bounds_mm": [
+      [
+        -7.0,
+        -6.0,
+        0.0
+      ],
+      [
+        7.0,
+        6.0,
+        5.875644207000732
+      ]
+    ],
+    "vertices": 742,
+    "triangles": 1488,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 0.6415946223351069,
+    "surface_cm2": 5.897452490065193,
+    "solid_mass_est_g": {
+      "PLA": 0.7955773316955326,
+      "PETG": 0.8148251703655858
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.15911546633910653,
+      "PETG": 0.16296503407311716
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 0.6271372959506802,
+      "PETG": 0.642309972465616
+    },
+    "sha256": "d67070b9474753c96bf3465924ed36a69b488cbc32e255f19e3888ea2a3e7bc6",
+    "assembly_profile": "dual_spiral_wheel_full_2026-11-18",
+    "assembly_quantity": 0,
+    "physical_mass_measured_g": null
+  },
+  {
+    "file": "Yaw_Skew_Pad_Mirrored.stl",
+    "source": "parametric CadQuery geometry in analyze_generate.py",
+    "role": "非装机备选镜像接触样件",
+    "bbox_xyz_mm": [
+      14.0,
+      12.0,
+      5.875644207000732
+    ],
+    "bounds_mm": [
+      [
+        -7.0,
+        -6.0,
+        0.0
+      ],
+      [
+        7.0,
+        6.0,
+        5.875644207000732
+      ]
+    ],
+    "vertices": 742,
+    "triangles": 1488,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 0.6415946223351069,
+    "surface_cm2": 5.897452490065193,
+    "solid_mass_est_g": {
+      "PLA": 0.7955773316955326,
+      "PETG": 0.8148251703655858
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.15911546633910653,
+      "PETG": 0.16296503407311716
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 0.6271372959506802,
+      "PETG": 0.642309972465616
+    },
+    "sha256": "8c517c1f038c4eb3598fa9b1fcfa982a373b30bc2b727b3968d99d9c8649bc7d",
+    "assembly_profile": "dual_spiral_wheel_full_2026-11-18",
+    "assembly_quantity": 0,
+    "physical_mass_measured_g": null
+  },
+  {
+    "file": "N20_Mount_Adapter.stl",
+    "source": "parametric CadQuery geometry in analyze_generate.py",
+    "role": "正式加载电机试装座×1；左右轮驱座另需集成/适配，不默认再装两套",
+    "bbox_xyz_mm": [
+      34.0,
+      28.0,
+      13.399999618530273
+    ],
+    "bounds_mm": [
+      [
+        -17.0,
+        -14.0,
+        0.0
+      ],
+      [
+        17.0,
+        14.0,
+        13.399999618530273
+      ]
+    ],
+    "vertices": 1624,
+    "triangles": 3272,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 3.6536820739218077,
+    "surface_cm2": 33.54234128501778,
+    "solid_mass_est_g": {
+      "PLA": 4.530565771663041,
+      "PETG": 4.6401762338806956
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.9061131543326083,
+      "PETG": 0.9280352467761391
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 3.5680333587116193,
+      "PETG": 3.6543567464223843
+    },
+    "sha256": "b44dca1be81dd15d535180a539e91ab66b11e87f652536feeac1a539eafd7124",
+    "assembly_profile": "dual_spiral_wheel_full_2026-11-18",
+    "assembly_quantity": 1,
+    "physical_mass_measured_g": null
+  },
+  {
+    "file": "Wheel_1_S060.stl",
+    "source": "Wheel_1.stl",
+    "source_route": "existing S060 export checked against original metrics; source STL not reread",
+    "scale": 0.6,
+    "print_translation_after_scale_mm": [
+      -86.69348220825195,
+      33.96236877441406,
+      47.730001831054686
+    ],
+    "bbox_xyz_mm": [
+      71.99999237060547,
+      71.98973083496094,
+      12.000001907348633
+    ],
+    "bounds_mm": [
+      [
+        -35.999996185302734,
+        -35.99486541748047,
+        0.0
+      ],
+      [
+        35.999996185302734,
+        35.99486541748047,
+        12.000001907348633
+      ]
+    ],
+    "vertices": 3622,
+    "triangles": 7276,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 3.0362727850500284,
+    "surface_cm2": 90.88595285301649,
+    "solid_mass_est_g": {
+      "PLA": 3.764978253462035,
+      "PETG": 3.8560664370135362
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.752995650692407,
+      "PETG": 0.7712132874027073
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 3.764978253462035,
+      "PETG": 3.8560664370135362
+    },
+    "sha256": "ea83c03333944cf6522670f85828320f71089bbfe51484d6cb86823b2a4fdca5",
+    "assembly_profile": "dual_spiral_wheel_full_2026-11-18",
+    "assembly_quantity": 1,
+    "role": "正式装机左7辐螺旋轮；缓冲/支点/区域2差速转向，跨板轮驱禁用",
+    "physical_mass_measured_g": null
+  },
+  {
+    "file": "Wheel_2_S060.stl",
+    "source": "Wheel_2.stl",
+    "source_route": "existing S060 export checked against original metrics; source STL not reread",
+    "scale": 0.6,
+    "print_translation_after_scale_mm": [
+      -86.69348220825195,
+      33.96236877441406,
+      -37.40999908447265
+    ],
+    "bbox_xyz_mm": [
+      71.99999237060547,
+      71.98973083496094,
+      12.0
+    ],
+    "bounds_mm": [
+      [
+        -35.999996185302734,
+        -35.99486541748047,
+        0.0
+      ],
+      [
+        35.999996185302734,
+        35.99486541748047,
+        12.0
+      ]
+    ],
+    "vertices": 3622,
+    "triangles": 7276,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 3.036263732037425,
+    "surface_cm2": 90.88593916505579,
+    "solid_mass_est_g": {
+      "PLA": 3.764967027726407,
+      "PETG": 3.8560549396875294
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.7529934055452814,
+      "PETG": 0.771210987937506
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 3.764967027726407,
+      "PETG": 3.8560549396875294
+    },
+    "sha256": "f7d6dac1c7bac5350fed1991174714689ea4f402972865277824fb6214532c78",
+    "assembly_profile": "dual_spiral_wheel_full_2026-11-18",
+    "assembly_quantity": 1,
+    "role": "正式装机右7辐螺旋轮；同左，落地吸能和防翻仍须测试",
+    "physical_mass_measured_g": null
+  },
+  {
+    "file": "Wheel_Spacer_S060.stl",
+    "source": "Wheel_Spacer.stl",
+    "source_route": "existing S060 export checked against original metrics; source STL not reread",
+    "scale": 0.6,
+    "print_translation_after_scale_mm": [
+      -86.69349069595337,
+      33.96239776611328,
+      -34.97999954223633
+    ],
+    "bbox_xyz_mm": [
+      4.499981880187988,
+      4.499885559082031,
+      2.4000000953674316
+    ],
+    "bounds_mm": [
+      [
+        -2.249990940093994,
+        -2.2499427795410156,
+        0.0
+      ],
+      [
+        2.249990940093994,
+        2.2499427795410156,
+        2.4000000953674316
+      ]
+    ],
+    "vertices": 987,
+    "triangles": 1974,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 0.02120420607156738,
+    "surface_cm2": 0.7421457815083847,
+    "solid_mass_est_g": {
+      "PLA": 0.02629321552874355,
+      "PETG": 0.026929341710890575
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.0052586431057487105,
+      "PETG": 0.005385868342178115
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 0.02629321552874355,
+      "PETG": 0.026929341710890575
+    },
+    "sha256": "b323b7d33e47cd7eb0f9aa53c6a54a65d237774ca3de3800da8c6b4afb1518c6",
+    "assembly_profile": "dual_spiral_wheel_full_2026-11-18",
+    "assembly_quantity": 2,
+    "role": "正式装机轮轴隔套×2；Φ4.5外廓×2.4厚",
+    "physical_mass_measured_g": null
+  },
+  {
+    "file": "brake_S060.stl",
+    "source": "brake.stl",
+    "source_route": "existing S060 export checked against original metrics; source STL not reread",
+    "scale": 0.6,
+    "print_translation_after_scale_mm": [
+      -113.04000086784363,
+      38.06971092224121,
+      -11.010000228881836
+    ],
+    "bbox_xyz_mm": [
+      5.519998073577881,
+      7.199420928955078,
+      7.199999809265137
+    ],
+    "bounds_mm": [
+      [
+        -2.7599990367889404,
+        -3.599710464477539,
+        0.0
+      ],
+      [
+        2.7599990367889404,
+        3.599710464477539,
+        7.199999809265137
+      ]
+    ],
+    "vertices": 1683,
+    "triangles": 3374,
+    "watertight": true,
+    "winding_consistent": true,
+    "nonmanifold_edges": 0,
+    "signed_volume_cm3": 0.1592304003187335,
+    "surface_cm2": 2.5900075335615953,
+    "solid_mass_est_g": {
+      "PLA": 0.19744569639522955,
+      "PETG": 0.20222260840479156
+    },
+    "mass20_uniform_lower_model_g": {
+      "PLA": 0.03948913927904591,
+      "PETG": 0.040444521680958315
+    },
+    "mass20_shell08_rough_g": {
+      "PLA": 0.19744569639522955,
+      "PETG": 0.20222260840479156
+    },
+    "sha256": "f082b8f169c5058f6bd0085d21e651e227e4794045a04d6ba85ae7650378425b",
+    "assembly_profile": "dual_spiral_wheel_full_2026-11-18",
+    "assembly_quantity": 0,
+    "role": "备用限位/制动件，默认装机0；若采用须确认功能/数量后计重",
+    "physical_mass_measured_g": null
+  }
+]

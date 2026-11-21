@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M1 手工叩甲虫双杆跳跃模型 — 3D 结构与物理起跳交互演示（02-5 组）</title>
+<style>
+  :root {
+    --bg: #0b1120;
+    --panel: #111827;
+    --card: #1e293b;
+    --border: #334155;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #f59e0b;
+    --accent2: #38bdf8;
+    --green: #10b981;
+    --red: #f43f5e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+  }
+  header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  header h1 { font-size: 20px; font-weight: 700; color: #fff; }
+  header .sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .badge-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .badge {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(245, 158, 11, 0.14);
+    border: 1px solid rgba(245, 158, 11, 0.45);
+    color: #fcd34d;
+  }
+  .badge.blue {
+    background: rgba(56, 189, 248, 0.14);
+    border-color: rgba(56, 189, 248, 0.45);
+    color: #7dd3fc;
+  }
+  .badge.green {
+    background: rgba(16, 185, 129, 0.14);
+    border-color: rgba(16, 185, 129, 0.45);
+    color: #6ee7b7;
+  }
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 16px;
+    padding: 16px 24px;
+    max-width: 1580px;
+    margin: 0 auto;
+  }
+  @media (max-width: 1080px) {
+    .main-grid { grid-template-columns: 1fr; }
+  }
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .panel-head {
+    padding: 12px 16px;
+    background: rgba(30, 41, 59, 0.7);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .panel-head h2 { font-size: 15px; font-weight: 600; color: #f8fafc; }
+  .viewport-wrap {
+    position: relative;
+    height: 470px;
+    background: radial-gradient(circle at 50% 35%, #1e293b 0%, #0b1120 100%);
+  }
+  canvas { width: 100%; height: 100%; display: block; }
+  .hud-top {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .hud-pill {
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(6px);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #e2e8f0;
+  }
+  .hud-pill strong { color: var(--accent); }
+  .hud-bottom {
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    font-size: 11.5px;
+    color: var(--muted);
+    background: rgba(15, 23, 42, 0.72);
+    padding: 4px 10px;
+    border-radius: 6px;
+    pointer-events: none;
+  }
+  .controls {
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid var(--border);
+    background: #0f172a;
+  }
+  .btn-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  button {
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    padding: 7px 13px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.15s ease;
+  }
+  button:hover { border-color: var(--accent2); color: #fff; }
+  button.primary {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: #0b1120;
+    border-color: #fbbf24;
+    font-weight: 700;
+  }
+  button.primary:hover { filter: brightness(1.08); }
+  button.active {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: var(--accent2);
+    color: #7dd3fc;
+  }
+  .slider-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 12px;
+  }
+  .slider-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 9px 12px;
+    border-radius: 8px;
+  }
+  .slider-box label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .slider-box label span { color: var(--accent2); font-weight: 600; font-family: monospace; }
+  input[type="range"] { width: 100%; accent-color: var(--accent); cursor: pointer; }
+  .side-canvas-wrap {
+    height: 290px;
+    background: #0b1222;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+  .telemetry {
+    padding: 12px 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .metric {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 10px;
+  }
+  .metric .k { font-size: 11px; color: var(--muted); }
+  .metric .v { font-size: 15px; font-weight: 700; color: #fff; font-family: monospace; margin-top: 2px; }
+  .metric .v.ok { color: var(--green); }
+  .metric .v.warn { color: var(--accent); }
+  .phase-box {
+    margin: 0 16px 14px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    font-size: 12.5px;
+  }
+  .phase-box strong { color: #7dd3fc; }
+  .lower-section {
+    max-width: 1580px;
+    margin: 0 auto 28px;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 1080px) {
+    .lower-section { grid-template-columns: 1fr; }
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+  th, td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+  }
+  th { color: #cbd5e1; background: rgba(30, 41, 59, 0.6); font-weight: 600; }
+  tr.part-row { cursor: pointer; transition: background 0.12s; }
+  tr.part-row:hover { background: rgba(56, 189, 248, 0.1); }
+  tr.part-row.selected { background: rgba(245, 158, 11, 0.16); }
+  .dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+  .steps { padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; font-size: 13px; }
+  .step {
+    background: var(--card);
+    border-left: 3px solid var(--accent);
+    padding: 9px 12px;
+    border-radius: 0 8px 8px 0;
+  }
+  .step strong { color: #fcd34d; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>🟠 M1 手工叩甲虫双杆验证模型 — 3D 装配与力学起跳交互演示</h1>
+    <div class="sub">完全对齐 02-5 组已提交《R1.docx》与《01_M1零件尺寸材料与制作调试指南.md》｜零电机 / 零电路 / 纯手工 30 元内完成</div>
+  </div>
+  <div class="badge-row">
+    <span class="badge">尺寸：展开 165 mm / 含壳 ≤180 mm</span>
+    <span class="badge blue">目标质量：25 ~ 40 g</span>
+    <span class="badge green">核心评分：R1 ↔ D1 ↔ M1 完全一致</span>
+  </div>
+</header>
+
+<div class="main-grid">
+  <!-- LEFT: 3D Interactive WebGL Viewport -->
+  <div class="panel">
+    <div class="panel-head">
+      <h2>1. 3D 实寸装配体视口（严格按毫米坐标构建）</h2>
+      <div class="btn-row">
+        <button id="btnViewIso" class="active" onclick="setCameraPreset('iso')">轴测全貌</button>
+        <button id="btnViewSide" onclick="setCameraPreset('side')">主视(侧视X-Z)</button>
+        <button id="btnViewTop" onclick="setCameraPreset('top')">俯视(Y对称)</button>
+        <button id="btnShell" class="active" onclick="toggleShell()">卡纸背壳: 半透</button>
+      </div>
+    </div>
+    <div class="viewport-wrap">
+      <canvas id="glCanvas"></canvas>
+      <div class="hud-top">
+        <div class="hud-pill" id="hudState">状态：<strong>锁止待发 (θ = 145°)</strong></div>
+        <div class="hud-pill" id="hudBand">橡皮筋：<strong>B档 (Δx = 35 mm, L = 60.0 mm)</strong></div>
+      </div>
+      <div class="hud-bottom">🖱 左键拖拽旋转视角 ｜ 右键平移 ｜ 滚轮缩放 ｜ 点击下方零件表可高亮对应部件</div>
+    </div>
+    <div class="controls">
+      <div class="btn-row">
+        <button class="primary" id="btnPlay" onclick="playJumpSequence()">▶ 一键演示：触发 → 拍地 → 起跳全过程</button>
+        <button onclick="resetPose()">↺ 复位到 145° 锁止态</button>
+        <span style="font-size:12px;color:#94a3b8;margin-left:6px;">储能档位：</span>
+        <button id="gearA" onclick="setGear('A')">A档 (Δx=25)</button>
+        <button id="gearB" class="active" onclick="setGear('B')">B档 (Δx=35)</button>
+        <button id="gearC" onclick="setGear('C')">C档 (Δx=45)</button>
+      </div>
+      <div class="slider-grid">
+        <div class="slider-box">
+          <label>前体铰链连续角 θ (145°锁止 → 205°限位) <span id="lblTheta">145.0°</span></label>
+          <input type="range" id="sldTheta" min="145" max="205" step="0.5" value="145" oninput="onManualTheta(this.value)" />
+        </div>
+        <div class="slider-box">
+          <label>主轴(M1-03)横向爆炸分解（对齐 D1 图3-II） <span id="lblExplode">0%</span></label>
+          <input type="range" id="sldExplode" min="0" max="100" step="1" value="0" oninput="onExplode(this.value)" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: 2D Side-view Mechanics + Real-time Math -->
+  <div class="panel">
+    <div class="panel-head">
+      <h2>2. D1 侧视力学原理剖面图与实时解算</h2>
+      <span style="font-size:12px;color:#94a3b8;">对应《R1》与手绘 D1-2/D1-4</span>
+    </div>
+    <div class="side-canvas-wrap">
+      <canvas id="sideCanvas"></canvas>
+    </div>
+    <div class="telemetry">
+      <div class="metric">
+        <div class="k">前体自由端 / 横销位置</div>
+        <div class="v" id="metTip">θ=145.0° | 最高 ≈54.4 mm</div>
+      </div>
+      <div class="metric">
+        <div class="k">有效橡皮筋长度 L(θ)</div>
+        <div class="v ok" id="metLen">60.00 mm (Δx = 35.0)</div>
+      </div>
+      <div class="metric">
+        <div class="k">释放过程带长变化 ΔL</div>
+        <div class="v ok" id="metDrop">单调缩短 ✓（无180°死点）</div>
+      </div>
+      <div class="metric">
+        <div class="k">销—坎锁钩 &amp; 外部拉绳状态</div>
+        <div class="v warn" id="metLatch">销入坎锁止｜拉绳零保持力</div>
+      </div>
+    </div>
+    <div class="phase-box" id="phaseExplain">
+      <strong>① 锁止储能态（145°）：</strong>前偏心耳位于主轴前方偏上 <code>(u=-5, w=+6)</code>，使左右橡皮筋力臂向下拉动前体。后摆钩死死卡住前体横销 <code>u=20</code> 并压向后体硬止挡；<strong>底部拉绳完全松弛</strong>，不靠手拉维持锁止。
+    </div>
+  </div>
+</div>
+
+<div class="lower-section">
+  <!-- Part List Table -->
+  <div class="panel">
+    <div class="panel-head">
+      <h2>3. 全部 8 大组件实寸与 D1 编号对照（点击高亮对应 3D 零件）</h2>
+      <button onclick="selectPart(null)" style="font-size:12px;padding:4px 10px;">取消高亮</button>
+    </div>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>编号</th>
+            <th>零件名称与材料</th>
+            <th>精确制作尺寸 / 坐标 (mm)</th>
+            <th>在模型中的角色</th>
+          </tr>
+        </thead>
+        <tbody id="partTbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Quick Build Guide -->
+  <div class="panel">
+    <div class="panel-head">
+      <h2>4. 照着做的 5 步手工组装秘籍（成本 &lt; 15 元）</h2>
+      <span class="badge green">无需 3D 打印</span>
+    </div>
+    <div class="steps">
+      <div class="step"><strong>第 1 步 · 备四根木条：</strong>裁 2 根 <code>80×8×3 mm</code> 轻木/桐木/竹片做前体（距短端 10 mm 钻 <code>Φ3.2</code> 主孔），2 根 <code>105×8×3 mm</code> 做后体（距短端 10 mm 钻 <code>Φ3.2</code> 主孔），用 <code>36 mm</code> 横撑胶接成上下两副框架。</div>
+      <div class="step"><strong>第 2 步 · 穿 M3×40 主轴：</strong>由左到右按 <code>垫片 → 后左条 → 隔套 → 前左条 → 中隔套 → 前右条 → 隔套 → 后右条 → 垫片 → 防松螺母</code> 穿紧。拖动右侧 <strong>“主轴爆炸滑块”</strong> 可看完整堆叠顺序，总宽控制 <code>≤45 mm</code>。</div>
+      <div class="step"><strong>第 3 步 · 粘支点定 145°：</strong>后体 <code>v≈15 mm</code> 下方粘一块约 <code>8~10 mm</code> 高的轻木支点块，使主轴心离桌约 <code>11 mm</code>。摆成 <code>145°</code> 后在前体 <code>u=20</code> 穿一根 <code>Φ2</code> 光滑横销，在后体侧面 <code>v=-5</code> 装塑料片剪的摆钩（钩唇留 <code>0.5~1 mm</code> 吃深）并粘硬止挡块。</div>
+      <div class="step"><strong>第 4 步 · 挂偏心耳与橡皮筋：</strong>注意！<strong>不要把橡皮筋直接绑在两杆最末端！</strong>必须在前体主轴短端上方 <code>(u=-5, w=+6)</code> 外侧 <code>Y=±20</code> 粘圆滑偏心耳，后体在 <code>v≈50/60/70 mm</code> 插 A/B/C 销柱，才能保证 <code>145°→205°</code> 全程向地面拍击而不卡死。</div>
+      <div class="step"><strong>第 5 步 · 穿水平拉绳 + 加卡纸背壳：</strong>后体底部 <code>v=60</code> 粘个细塑料导向环，细尼龙线一端做个浅钩环挂在摆钩触发臂上，水平向后轻拉 <code>2~3 mm</code> 即可脱扣并滑脱（证明绝无外力助跳）。最后用彩卡纸剪 <code>170×40 mm</code> 拱背涂装成叩甲虫，拿去验收直接加分！</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================================
+// Exact M1 Parameters (in mm) from 01_M1零件尺寸材料与制作调试指南.md
+// Coordinate convention:
+//   Side view: +X backward (toward rear), +Z upward, +Y lateral.
+//   Origin O = main hinge axis at Z_axis_rest = 11.0 mm above ground.
+//   θ = 0 along +X (rear body). Front body u runs along cos(θ) X + sin(θ) Z.
+// ============================================================================
+const AXIS_Z_REST = 11.0; // rear fulcrum lifts O to ~11 mm
+const ANCHORS = {
+  A: { v: 50.04, dx: 25, l0: 25 },
+  B: { v: 60.15, dx: 35, l0: 25 },
+  C: { v: 70.22, dx: 45, l0: 25 },
+};
+
+const PARTS = [
+  { id: 'M1-01', name: '前体轻木框架', color: '#e6b87d', dim: '纵条 80×8×3 ×2（u∈[-10,70], Y=±10.5）；框宽 36', role: '模拟叩甲虫前胸段，绕主轴高速向下拍击桌面' },
+  { id: 'M1-02', name: '后体轻木框架 + 下支点', color: '#c88a4b', dim: '纵条 105×8×3 ×2（v∈[-10,95], Y=±16.5）；支点 v=15', role: '模拟中后胸与腹段，架起主轴 O 离桌约 11 mm' },
+  { id: 'M1-03', name: '主铰链组件', color: '#94a3b8', dim: 'M3×40 螺栓 + 垫片 + 隔套 + 防松螺母（总宽 ≤45）', role: '同轴旋转副，隔套定距防夹死' },
+  { id: 'M1-04', name: '前偏心锚耳 + A/B/C 锚柱 + 橡皮筋', color: '#f43f5e', dim: '前耳(u=-5,w=+6,Y=±20)；后锚 v=50/60/70', role: '核心发明！偏心布置保证 145°→205° 橡皮筋单调缩短蓄能释放' },
+  { id: 'M1-05', name: '前锁止横销 + 后摆钩 + 硬止挡', color: '#38bdf8', dim: '横销 u=20(Φ2)；摆钩轴 K=(v=-5,w=0)，钩口≈16.2', role: '模拟叩甲虫前胸突刺卡扣，承受弹性拉载、微行程触发脱扣' },
+  { id: 'M1-06', name: '底部导向环 + 水平触发拉绳', color: '#10b981', dim: '导环(v=60,w=-7)；水平外拉 2~3 mm 脱扣滑落', role: '零外力解耦触发，脱扣瞬间外线彻底松弛/脱离' },
+  { id: 'M1-07', name: '205° 限位止挡销 + EVA 缓冲垫', color: '#a855f7', dim: '空载终点 θ=205° 硬限位，贴 1~2 mm 软垫', role: '防止空载测试时前后体过伸撞裂木条' },
+  { id: 'M1-08', name: '可拆卸叩甲虫卡纸背壳（加分项）', color: '#14b8a6', dim: '展开约 170×40，质量 <3 g，总包络 ≤180 mm', role: '拟真化背板（不跨接铰链、不遮挡摆钩），课堂展示加分' },
+];
+
+// State
+let state = {
+  thetaDeg: 145.0,
+  gear: 'B',
+  explode: 0.0,
+  shellMode: 1, // 0=off, 1=semi-transparent, 2=solid
+  selectedPart: null,
+  animating: false,
+  jumpZ: 0.0,      // vertical lift of body origin above rest
+  jumpX: 0.0,      // horizontal hop progress
+  bodyPitchDeg: 0, // slight pitch rotation during takeoff
+  hookAngleDeg: 0, // hook swing angle on release
+  ropePull: 0,     // 0..1 trigger pull
+  ropeSlack: false,
+  phaseIdx: 0,     // 0: locked, 1: pulling trigger, 2: snapping down, 3: airborne, 4: landed
+};
+
+// Populate part table
+const tbody = document.getElementById('partTbody');
+PARTS.forEach(p => {
+  const tr = document.createElement('tr');
+  tr.className = 'part-row';
+  tr.dataset.id = p.id;
+  tr.innerHTML = `
+    <td><span class="dot" style="background:${p.color}"></span><strong>${p.id}</strong></td>
+    <td>${p.name}</td>
+    <td style="font-family:monospace;font-size:11.5px;color:#cbd5e1">${p.dim}</td>
+    <td>${p.role}</td>
+  `;
+  tr.onclick = () => selectPart(state.selectedPart === p.id ? null : p.id);
+  tbody.appendChild(tr);
+});
+
+function selectPart(id) {
+  state.selectedPart = id;
+  document.querySelectorAll('tr.part-row').forEach(r => {
+    r.classList.toggle('selected', r.dataset.id === id);
+  });
+}
+
+function setGear(g) {
+  state.gear = g;
+  ['A','B','C'].forEach(k => document.getElementById('gear'+k).classList.toggle('active', k===g));
+  updateTelemetry();
+}
+
+function toggleShell() {
+  state.shellMode = (state.shellMode + 1) % 3;
+  const txt = ['隐藏', '半透', '实心'][state.shellMode];
+  const btn = document.getElementById('btnShell');
+  btn.textContent = '卡纸背壳: ' + txt;
+  btn.classList.toggle('active', state.shellMode !== 0);
+}
+
+function onManualTheta(val) {
+  state.animating = false;
+  state.thetaDeg = parseFloat(val);
+  state.jumpZ = 0;
+  state.jumpX = 0;
+  state.bodyPitchDeg = 0;
+  state.hookAngleDeg = state.thetaDeg > 146 ? 26 : 0;
+  state.ropePull = state.thetaDeg > 146 ? 1 : 0;
+  state.ropeSlack = state.thetaDeg > 146;
+  state.phaseIdx = state.thetaDeg <= 146 ? 0 : (state.thetaDeg < 185 ? 2 : 3);
+  document.getElementById('lblTheta').textContent = state.thetaDeg.toFixed(1) + '°';
+  updateTelemetry();
+}
+
+function onExplode(val) {
+  state.explode = parseFloat(val) / 100.0;
+  document.getElementById('lblExplode').textContent = val + '%';
+}
+
+function resetPose() {
+  state.animating = false;
+  state.thetaDeg = 145.0;
+  state.jumpZ = 0;
+  state.jumpX = 0;
+  state.bodyPitchDeg = 0;
+  state.hookAngleDeg = 0;
+  state.ropePull = 0;
+  state.ropeSlack = false;
+  state.phaseIdx = 0;
+  document.getElementById('sldTheta').value = 145;
+  document.getElementById('lblTheta').textContent = '145.0°';
+  updateTelemetry();
+}
+
+// Compute exact anchor geometry in X-Z side plane relative to hinge O
+function calcMechanics(thetaDeg, gearKey) {
+  const th = thetaDeg * Math.PI / 180;
+  const c = Math.cos(th), s = Math.sin(th);
+  // Front local point (u, w) -> (X, Z) relative to O:
+  // X = u*cos(th) - w*sin(th), Z = u*sin(th) + w*cos(th)
+  const frontPt = (u, w) => [u * c - w * s, u * s + w * c];
+  const E = frontPt(-5, 6);
+  const P = frontPt(20, 0);
+  const Tip = frontPt(70, -4);
+  const v = ANCHORS[gearKey].v;
+  const L = Math.hypot(v - E[0], E[1]);
+  const dx = L - ANCHORS[gearKey].l0;
+  const highPt = AXIS_Z_REST + 70 * Math.sin(th) + 4 * Math.abs(Math.cos(th));
+  return { E, P, Tip, L, dx, highPt };
+}
+
+function updateTelemetry() {
+  const m = calcMechanics(state.thetaDeg, state.gear);
+  document.getElementById('hudBand').innerHTML =
+    `橡皮筋：<strong>${state.gear}档 (Δx=${m.dx.toFixed(1)} mm, L=${m.L.toFixed(2)} mm)</strong>`;
+  const stNames = ['锁止待发 (θ=145°)', '水平拉绳脱扣中…', '前体高速下拍地面!', '地面反力腾空跃起!', '平稳落回桌面'];
+  document.getElementById('hudState').innerHTML = `状态：<strong>${stNames[state.phaseIdx]}</strong>`;
+  document.getElementById('metTip').textContent = `θ=${state.thetaDeg.toFixed(1)}° | 离地高 ${(m.highPt + state.jumpZ).toFixed(1)} mm`;
+  document.getElementById('metLen').textContent = `${m.L.toFixed(2)} mm (Δx = ${m.dx.toFixed(1)})`;
+
+  const m145 = calcMechanics(145, state.gear);
+  const shortened = m145.L - m.L;
+  document.getElementById('metDrop').textContent =
+    state.thetaDeg <= 145.1 ? `145°→205° 缩短 ${(m145.L - calcMechanics(205, state.gear).L).toFixed(2)} mm ✓`
+                            : `已释放收缩 ${shortened.toFixed(2)} mm ✓`;
+
+  const latchTexts = [
+    '销入坎锁止｜拉绳零保持力',
+    '水平轻拉 2.5mm → 摆钩退出!',
+    '钩已完全让开｜拉绳滑脱松弛',
+    '地面反力起跳｜外部线完全零张力',
+    '演示完成｜可换档位或复位重来'
+  ];
+  document.getElementById('metLatch').textContent = latchTexts[state.phaseIdx];
+
+  const explains = [
+    '<strong>① 锁止储能态（145°）：</strong>前偏心耳位于主轴前方偏上 <code>(u=-5, w=+6)</code>，使左右橡皮筋力臂向下拉动前体。后摆钩死死卡住前体横销 <code>u=20</code> 并压向后体硬止挡；<strong>底部拉绳完全松弛</strong>。',
+    '<strong>② 水平解耦脱扣（2~3 mm）：</strong>操作者仅沿桌面水平后拉细线 2.5 mm，摆钩绕 <code>K=(-5,0)</code> 顺时针退开承接坎，前销摆脱束缚；临时拉环随即滑脱，<strong>绝对不提供任何向上助跳拉力</strong>。',
+    '<strong>③ 瞬时释放拍击桌面（145°→~189°）：</strong>偏心橡皮筋在毫秒级收缩，驱动前体绕主轴猛烈向下拍击地面，接触点受到巨大的向上地面法向反力 <code>F_N</code>！',
+    '<strong>④ 腾空跃起（R1 核心机理复现）：</strong>地面反力将整机向上前方弹离桌面！虽然 M1 不考核跳多高，但完整复现了叩甲虫“慢速储能→卡扣锁止→瞬时释放→地面反力起跳”的全部物理闭环。',
+    '<strong>⑤ 落地回稳：</strong>完成一次无腿跳跃演示！可在左上角点击 A/B/C 切换不同储能档位，或拖动下方“主轴爆炸滑块”对照手绘 D1 图 3-II 检查装配顺序。'
+  ];
+  document.getElementById('phaseExplain').innerHTML = explains[state.phaseIdx];
+}
+
+// Jump animation timeline
+let animStart = 0;
+function playJumpSequence() {
+  resetPose();
+  state.animating = true;
+  animStart = performance.now();
+}
+
+function stepAnimation(now) {
+  if (!state.animating) return;
+  const t = (now - animStart) / 1000.0; // seconds
+  // 0.0 - 0.7s: hold at 145 (brief pause so user sees locked state)
+  // 0.7 - 1.5s: pull trigger horizontally, hook rotates open, rope decouples
+  // 1.5 - 1.85s: snap front body down 145 -> 189 deg (hits ground!)
+  // 1.85 - 2.95s: parabolic airborne hop! (peak height scaled by gear A/B/C)
+  // 2.95 - 3.3s: settle on ground
+  if (t < 0.7) {
+    state.phaseIdx = 0;
+    state.thetaDeg = 145;
+  } else if (t < 1.5) {
+    state.phaseIdx = 1;
+    const u = (t - 0.7) / 0.8;
+    state.ropePull = u;
+    state.hookAngleDeg = u * 28;
+    if (u > 0.75) state.ropeSlack = true;
+  } else if (t < 1.85) {
+    state.phaseIdx = 2;
+    state.ropeSlack = true;
+    state.hookAngleDeg = 28;
+    const u = (t - 1.5) / 0.35;
+    const ease = u * u;
+    state.thetaDeg = 145 + (190 - 145) * ease;
+  } else if (t < 2.95) {
+    state.phaseIdx = 3;
+    const u = (t - 1.85) / 1.1;
+    const peakMap = { A: 36, B: 56, C: 78 };
+    const distMap = { A: 55, B: 85, C: 118 };
+    const H = peakMap[state.gear];
+    state.jumpZ = 4 * H * u * (1 - u);
+    state.jumpX = -distMap[state.gear] * u; // jumps toward front (-X)
+    state.thetaDeg = 190 + 14 * Math.sin(u * Math.PI); // slight elastic oscillation up to ~204°
+    state.bodyPitchDeg = 16 * Math.sin(u * Math.PI);
+  } else {
+    state.phaseIdx = 4;
+    state.jumpZ = 0;
+    const distMap = { A: 55, B: 85, C: 118 };
+    state.jumpX = -distMap[state.gear];
+    state.thetaDeg = 192;
+    state.bodyPitchDeg = 0;
+    state.animating = false;
+  }
+  document.getElementById('sldTheta').value = state.thetaDeg;
+  document.getElementById('lblTheta').textContent = state.thetaDeg.toFixed(1) + '°';
+  updateTelemetry();
+}
+
+// ============================================================================
+// Pure WebGL 3D Renderer (Dynamic Parametric Box/Cylinder Primitives)
+// Mapping model coords (X_rear, Y_lat, Z_up) -> WebGL (x=X_rear, y=Z_up, z=-Y_lat)
+// ============================================================================
+const glCanvas = document.getElementById('glCanvas');
+const gl = glCanvas.getContext('webgl', { antialias: true });
+
+const vsSrc = `
+attribute vec3 aPos;
+attribute vec3 aNorm;
+uniform mat4 uMVP;
+uniform mat4 uModel;
+varying vec3 vNorm;
+varying vec3 vWorldPos;
+void main() {
+  vec4 wp = uModel * vec4(aPos, 1.0);
+  vWorldPos = wp.xyz;
+  vNorm = mat3(uModel) * aNorm;
+  gl_Position = uMVP * vec4(aPos, 1.0);
+}`;
+const fsSrc = `
+precision mediump float;
+varying vec3 vNorm;
+varying vec3 vWorldPos;
+uniform vec3 uColor;
+uniform float uAlpha;
+uniform float uHighlight;
+void main() {
+  vec3 N = normalize(vNorm);
+  vec3 L1 = normalize(vec3(0.45, 0.85, 0.55));
+  vec3 L2 = normalize(vec3(-0.6, 0.3, -0.5));
+  float d1 = max(dot(N, L1), 0.0);
+  float d2 = max(dot(N, L2), 0.0);
+  vec3 col = uColor * (0.34 + 0.68 * d1 + 0.22 * d2);
+  if (uHighlight > 0.5) {
+    col = mix(col, vec3(1.0, 0.85, 0.25), 0.35);
+  }
+  gl_FragColor = vec4(col, uAlpha);
+}`;
+
+function compile(type, src) {
+  const s = gl.createShader(type);
+  gl.shaderSource(s, src);
+  gl.compileShader(s);
+  return s;
+}
+const prog = gl.createProgram();
+gl.attachShader(prog, compile(gl.VERTEX_SHADER, vsSrc));
+gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, fsSrc));
+gl.linkProgram(prog);
+gl.useProgram(prog);
+
+const locPos = gl.getAttribLocation(prog, 'aPos');
+const locNorm = gl.getAttribLocation(prog, 'aNorm');
+const uMVP = gl.getUniformLocation(prog, 'uMVP');
+const uModel = gl.getUniformLocation(prog, 'uModel');
+const uColor = gl.getUniformLocation(prog, 'uColor');
+const uAlpha = gl.getUniformLocation(prog, 'uAlpha');
+const uHighlight = gl.getUniformLocation(prog, 'uHighlight');
+
+function makeMesh(posArr, normArr) {
+  const pBuf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, pBuf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(posArr), gl.STATIC_DRAW);
+  const nBuf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, nBuf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(normArr), gl.STATIC_DRAW);
+  return { pBuf, nBuf, count: posArr.length / 3 };
+}
+
+function createBoxMesh() {
+  const p = [], n = [];
+  const faces = [
+    [[ -0.5,-0.5, 0.5],[ 0.5,-0.5, 0.5],[ 0.5, 0.5, 0.5],[-0.5, 0.5, 0.5],[0,0,1]],
+    [[  0.5,-0.5,-0.5],[-0.5,-0.5,-0.5],[-0.5, 0.5,-0.5],[ 0.5, 0.5,-0.5],[0,0,-1]],
+    [[ -0.5, 0.5,-0.5],[-0.5, 0.5, 0.5],[ 0.5, 0.5, 0.5],[ 0.5, 0.5,-0.5],[0,1,0]],
+    [[ -0.5,-0.5, 0.5],[-0.5,-0.5,-0.5],[ 0.5,-0.5,-0.5],[ 0.5,-0.5, 0.5],[0,-1,0]],
+    [[  0.5,-0.5, 0.5],[ 0.5,-0.5,-0.5],[ 0.5, 0.5,-0.5],[ 0.5, 0.5, 0.5],[1,0,0]],
+    [[ -0.5,-0.5,-0.5],[-0.5,-0.5, 0.5],[-0.5, 0.5, 0.5],[-0.5, 0.5,-0.5],[-1,0,0]],
+  ];
+  faces.forEach(([a,b,c,d,nm]) => {
+    [a,b,c, a,c,d].forEach(pt => { p.push(...pt); n.push(...nm); });
+  });
+  return makeMesh(p, n);
+}
+
+// Cylinder along Z-axis (so it aligns with model Y lateral axis!) length 1, radius 1
+function createCylZMesh(segs=24) {
+  const p = [], n = [];
+  for (let i=0; i<segs; i++) {
+    const a0 = (i/segs)*Math.PI*2, a1 = ((i+1)/segs)*Math.PI*2;
+    const c0=Math.cos(a0), s0=Math.sin(a0), c1=Math.cos(a1), s1=Math.sin(a1);
+    // side
+    p.push(c0,s0,-0.5, c1,s1,-0.5, c1,s1,0.5,  c0,s0,-0.5, c1,s1,0.5, c0,s0,0.5);
+    n.push(c0,s0,0,    c1,s1,0,    c1,s1,0,     c0,s0,0,    c1,s1,0,   c0,s0,0);
+    // caps
+    p.push(0,0,0.5, c0,s0,0.5, c1,s1,0.5); n.push(0,0,1, 0,0,1, 0,0,1);
+    p.push(0,0,-0.5, c1,s1,-0.5, c0,s0,-0.5); n.push(0,0,-1, 0,0,-1, 0,0,-1);
+  }
+  return makeMesh(p, n);
+}
+
+// Curved beetle shell strip along X (-0.5..0.5)
+function createShellArchMesh() {
+  const p = [], n = [];
+  const nx = 18, ny = 12;
+  const pt = (u, v) => {
+    const x = -80 + u * 168; // ~168 mm total
+    const halfW = 20 * Math.sin(0.22 + u * (Math.PI - 0.44));
+    const z = (Math.cos(v * Math.PI * 0.5)) * 16 + Math.sin(u * Math.PI) * 14;
+    const y = v * halfW;
+    return [x, z, y]; // WebGL (x, y=up, z)
+  };
+  for (let i=0; i<nx; i++) {
+    for (let j=-ny; j<ny; j++) {
+      const u0=i/nx, u1=(i+1)/nx, v0=j/ny, v1=(j+1)/ny;
+      const a=pt(u0,v0), b=pt(u1,v0), c=pt(u1,v1), d=pt(u0,v1);
+      const ux=b[0]-a[0], uy=b[1]-a[1], uz=b[2]-a[2];
+      const vx=d[0]-a[0], vy=d[1]-a[1], vz=d[2]-a[2];
+      let cx=uy*vz-uz*vy, cy=uz*vx-ux*vz, cz=ux*vy-uy*vx;
+      const ln = Math.hypot(cx,cy,cz)||1;
+      cx/=ln; cy/=ln; cz/=ln;
+      [a,b,c, a,c,d].forEach(q => { p.push(...q); n.push(cx,cy,cz); });
+    }
+  }
+  return makeMesh(p, n);
+}
+
+const boxMesh = createBoxMesh();
+const cylMesh = createCylZMesh(24);
+const shellMesh = createShellArchMesh();
+
+// Matrix math
+function mId(){ return new Float32Array([1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1]); }
+function mMul(a,b){
+  const o=new Float32Array(16);
+  for(let c=0;c<4;c++) for(let r=0;r<4;r++)
+    o[c*4+r]=a[r]*b[c*4]+a[4+r]*b[c*4+1]+a[8+r]*b[c*4+2]+a[12+r]*b[c*4+3];
+  return o;
+}
+function mT(x,y,z){ const m=mId(); m[12]=x; m[13]=y; m[14]=z; return m; }
+function mS(x,y,z){ const m=mId(); m[0]=x; m[5]=y; m[10]=z; return m; }
+function mRz(rad){ const m=mId(),c=Math.cos(rad),s=Math.sin(rad); m[0]=c;m[1]=s;m[4]=-s;m[5]=c; return m; }
+function mPersp(fov, asp, n, f){
+  const t=1/Math.tan(fov/2), nf=1/(n-f);
+  return new Float32Array([t/asp,0,0,0, 0,t,0,0, 0,0,(f+n)*nf,-1, 0,0,2*f*n*nf,0]);
+}
+function mLook(eye, tgt, up){
+  let zx=eye[0]-tgt[0], zy=eye[1]-tgt[1], zz=eye[2]-tgt[2];
+  let l=Math.hypot(zx,zy,zz)||1; zx/=l; zy/=l; zz/=l;
+  let xx=up[1]*zz-up[2]*zy, xy=up[2]*zx-up[0]*zz, xz=up[0]*zy-up[1]*zx;
+  l=Math.hypot(xx,xy,xz)||1; xx/=l; xy/=l; xz/=l;
+  let yx=zy*xz-zz*xy, yy=zz*xx-zx*xz, yz=zx*xy-zy*xx;
+  return new Float32Array([xx,yx,zx,0, xy,yy,zy,0, xz,yz,zz,0, -(xx*eye[0]+xy*eye[1]+xz*eye[2]), -(yx*eye[0]+yy*eye[1]+yz*eye[2]), -(zx*eye[0]+zy*eye[1]+zz*eye[2]), 1]);
+}
+
+function hexRgb(h) {
+  const v = parseInt(h.slice(1), 16);
+  return [(v>>16&255)/255, (v>>8&255)/255, (v&255)/255];
+}
+
+let viewProj = mId();
+function drawMesh(mesh, modelMat, colorHex, partId=null, alpha=1.0) {
+  gl.bindBuffer(gl.ARRAY_BUFFER, mesh.pBuf);
+  gl.vertexAttribPointer(locPos, 3, gl.FLOAT, false, 0, 0);
+  gl.enableVertexAttribArray(locPos);
+  gl.bindBuffer(gl.ARRAY_BUFFER, mesh.nBuf);
+  gl.vertexAttribPointer(locNorm, 3, gl.FLOAT, false, 0, 0);
+  gl.enableVertexAttribArray(locNorm);
+  gl.uniformMatrix4fv(uModel, false, modelMat);
+  gl.uniformMatrix4fv(uMVP, false, mMul(viewProj, modelMat));
+  gl.uniform3fv(uColor, hexRgb(colorHex));
+  gl.uniform1f(uAlpha, alpha);
+  const hl = (state.selectedPart && partId === state.selectedPart) ? 1.0 : 0.0;
+  gl.uniform1f(uHighlight, hl);
+  gl.drawArrays(gl.TRIANGLES, 0, mesh.count);
+}
+
+// Helper: draw box in model coords (X_rear, Y_lat, Z_up) -> WebGL (x=X_rear, y=Z_up, z=-Y_lat)
+function drawBoxModel(parentM, cx, cy, cz, dx, dy, dz, color, partId, alpha=1.0, rotZdeg=0) {
+  let m = mMul(parentM, mT(cx, cz, -cy));
+  if (rotZdeg !== 0) m = mMul(m, mRz(rotZdeg * Math.PI / 180));
+  m = mMul(m, mS(dx, dz, dy));
+  drawMesh(boxMesh, m, color, partId, alpha);
+}
+function drawCylModel(parentM, cx, cy, cz, radius, lenY, color, partId, alpha=1.0) {
+  let m = mMul(parentM, mT(cx, cz, -cy));
+  m = mMul(m, mS(radius, radius, lenY));
+  drawMesh(cylMesh, m, color, partId, alpha);
+}
+// Connect two 3D points in model coords (X_rear, Y_lat, Z_up) using a thin beam (rubber band / string)
+function drawSegmentModel(parentM, p1, p2, thick, color, partId) {
+  const x1=p1[0], y1=p1[2], z1=-p1[1];
+  const x2=p2[0], y2=p2[2], z2=-p2[1];
+  const dx=x2-x1, dy=y2-y1, dz=z2-z1;
+  const len = Math.hypot(dx, dy, dz) || 0.001;
+  const yaw = Math.atan2(dy, dx);
+  // Build rotation aligning +X to (dx,dy,dz)
+  const dir = [dx/len, dy/len, dz/len];
+  let up = Math.abs(dir[1]) < 0.9 ? [0,1,0] : [1,0,0];
+  let s1 = [dir[1]*up[2]-dir[2]*up[1], dir[2]*up[0]-dir[0]*up[2], dir[0]*up[1]-dir[1]*up[0]];
+  const sl = Math.hypot(...s1)||1; s1=s1.map(v=>v/sl);
+  let s2 = [s1[1]*dir[2]-s1[2]*dir[1], s1[2]*dir[0]-s1[0]*dir[2], s1[0]*dir[1]-s1[1]*dir[0]];
+  const mx = (x1+x2)/2, my = (y1+y2)/2, mz = (z1+z2)/2;
+  const rotM = new Float32Array([
+    dir[0], dir[1], dir[2], 0,
+    s2[0],  s2[1],  s2[2],  0,
+    s1[0],  s1[1],  s1[2],  0,
+    mx,     my,     mz,     1
+  ]);
+  const m = mMul(parentM, mMul(rotM, mS(len, thick, thick)));
+  drawMesh(boxMesh, m, color, partId, 1.0);
+}
+
+// Camera orbit
+let cam = { yaw: 0.72, pitch: 0.36, dist: 235, panX: 5, panY: 22 };
+function setCameraPreset(p) {
+  document.querySelectorAll('#btnViewIso,#btnViewSide,#btnViewTop').forEach(b=>b.classList.remove('active'));
+  if (p === 'iso') { cam = { yaw: 0.72, pitch: 0.36, dist: 235, panX: 5, panY: 22 }; document.getElementById('btnViewIso').classList.add('active'); }
+  if (p === 'side') { cam = { yaw: 0.0, pitch: 0.04, dist: 245, panX: 5, panY: 22 }; document.getElementById('btnViewSide').classList.add('active'); }
+  if (p === 'top') { cam = { yaw: 0.0, pitch: 1.48, dist: 245, panX: 5, panY: 0 }; document.getElementById('btnViewTop').classList.add('active'); }
+}
+
+let dragMode = 0, lastX = 0, lastY = 0;
+glCanvas.addEventListener('contextmenu', e => e.preventDefault());
+glCanvas.addEventListener('mousedown', e => { dragMode = e.button === 2 ? 2 : 1; lastX = e.clientX; lastY = e.clientY; });
+window.addEventListener('mouseup', () => dragMode = 0);
+window.addEventListener('mousemove', e => {
+  if (!dragMode) return;
+  const dx = e.clientX - lastX, dy = e.clientY - lastY;
+  lastX = e.clientX; lastY = e.clientY;
+  if (dragMode === 1) {
+    cam.yaw -= dx * 0.008;
+    cam.pitch = Math.max(-0.4, Math.min(1.52, cam.pitch + dy * 0.008));
+  } else {
+    cam.panX -= dx * 0.25;
+    cam.panY += dy * 0.25;
+  }
+});
+glCanvas.addEventListener('wheel', e => {
+  e.preventDefault();
+  cam.dist = Math.max(95, Math.min(480, cam.dist + e.deltaY * 0.25));
+}, { passive: false });
+
+function render3D() {
+  const w = glCanvas.clientWidth, h = glCanvas.clientHeight;
+  if (glCanvas.width !== w || glCanvas.height !== h) { glCanvas.width = w; glCanvas.height = h; }
+  gl.viewport(0, 0, w, h);
+  gl.clearColor(0.045, 0.07, 0.13, 1.0);
+  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+  gl.enable(gl.DEPTH_TEST);
+  gl.enable(gl.BLEND);
+  gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+  const eye = [
+    cam.panX + cam.dist * Math.cos(cam.pitch) * Math.sin(cam.yaw),
+    cam.panY + cam.dist * Math.sin(cam.pitch),
+    cam.dist * Math.cos(cam.pitch) * Math.cos(cam.yaw)
+  ];
+  viewProj = mMul(mPersp(0.62, w/h, 1, 1500), mLook(eye, [cam.panX, cam.panY, 0], [0,1,0]));
+
+  // Ground grid & tabletop (Z=0)
+  for (let gx = -180; gx <= 180; gx += 30) {
+    drawBoxModel(mId(), gx, 0, -0.3, 0.7, 180, 0.4, '#1e293b', null, 0.75);
+  }
+  for (let gy = -90; gy <= 90; gy += 30) {
+    drawBoxModel(mId(), 0, gy, -0.3, 360, 0.7, 0.4, '#1e293b', null, 0.75);
+  }
+
+  // Whole robot body transform (jumpX, jumpZ, bodyPitchDeg)
+  const exp = state.explode; // 0..1 explosion factor
+  const bodyM = mMul(mT(state.jumpX, AXIS_Z_REST + state.jumpZ, 0), mRz(-state.bodyPitchDeg * Math.PI / 180));
+
+  // M1-02 Rear frame: v in [-10, 95], Y = ±16.5 ± explode*14
+  const yRear = 16.5 + exp * 15;
+  drawBoxModel(bodyM, 42.5,  yRear, 0, 105, 3, 8, '#c88a4b', 'M1-02');
+  drawBoxModel(bodyM, 42.5, -yRear, 0, 105, 3, 8, '#c88a4b', 'M1-02');
+  // Rear cross braces at v=35 and v=80 (between rear rails)
+  drawBoxModel(bodyM, 35, 0, 0, 6, 30, 6, '#b0743a', 'M1-02');
+  drawBoxModel(bodyM, 80, 0, 0, 6, 30, 6, '#b0743a', 'M1-02');
+  // Rear fulcrum support block at v=15, lifts O to 11mm (rail bottom is at -4, so block is 7mm tall from -4 to -11)
+  drawBoxModel(bodyM, 15,  yRear, -7.5, 14, 4, 7, '#9c632d', 'M1-02');
+  drawBoxModel(bodyM, 15, -yRear, -7.5, 14, 4, 7, '#9c632d', 'M1-02');
+
+  // M1-01 Front frame: rotated by +thetaDeg around O in X-Z plane
+  const thRad = state.thetaDeg * Math.PI / 180;
+  const frontM = mMul(bodyM, mRz(thRad));
+  const yFront = 10.5 + exp * 7;
+  drawBoxModel(frontM, 30,  yFront, 0, 80, 3, 8, '#e6b87d', 'M1-01');
+  drawBoxModel(frontM, 30, -yFront, 0, 80, 3, 8, '#e6b87d', 'M1-01');
+  // Front cross braces at u=35 and u=60
+  drawBoxModel(frontM, 35, 0, 0, 6, 18, 6, '#d4a366', 'M1-01');
+  drawBoxModel(frontM, 60, 0, 0, 6, 18, 6, '#d4a366', 'M1-01');
+
+  // M1-03 Main Hinge M3x40 assembly (with exploded washers & spacers!)
+  drawCylModel(bodyM, 0, 0, 0, 1.5, 42 + exp*52, '#cbd5e1', 'M1-03');
+  // Bolt head & locknut
+  drawCylModel(bodyM, 0, -(21.5 + exp*34), 0, 2.8, 2.2, '#64748b', 'M1-03');
+  drawCylModel(bodyM, 0,  (21.5 + exp*34), 0, 2.8, 2.6, '#64748b', 'M1-03');
+  // Outer washers
+  drawCylModel(bodyM, 0, -(19.0 + exp*26), 0, 3.2, 0.8, '#94a3b8', 'M1-03');
+  drawCylModel(bodyM, 0,  (19.0 + exp*26), 0, 3.2, 0.8, '#94a3b8', 'M1-03');
+  // Side spacers between rear & front rails (between Y=12 and 15)
+  drawCylModel(bodyM, 0, -(13.5 + exp*11), 0, 2.6, 2.6, '#475569', 'M1-03');
+  drawCylModel(bodyM, 0,  (13.5 + exp*11), 0, 2.6, 2.6, '#475569', 'M1-03');
+  // Center spacer between front rails
+  drawCylModel(bodyM, 0, 0, 0, 2.6, 17.5, '#475569', 'M1-03');
+
+  // M1-04 Front eccentric ears (u=-5, w=+6, Y=±20) + Rear A/B/C pins + Dynamic rubber bands
+  const yBand = 20.0 + exp * 18;
+  // Front eccentric bracket connecting front rails at u=-5 to Y=±20, w=+6
+  drawBoxModel(frontM, -5,  14.5 + exp*8, 3, 5, 11, 8, '#be123c', 'M1-04');
+  drawBoxModel(frontM, -5, -(14.5 + exp*8), 3, 5, 11, 8, '#be123c', 'M1-04');
+  drawCylModel(frontM, -5,  yBand, 6, 1.3, 3.5, '#fda4af', 'M1-04');
+  drawCylModel(frontM, -5, -yBand, 6, 1.3, 3.5, '#fda4af', 'M1-04');
+
+  // Rear A/B/C pins
+  Object.entries(ANCHORS).forEach(([k, cfg]) => {
+    const isSel = k === state.gear;
+    const cHex = isSel ? '#fb7185' : '#64748b';
+    drawCylModel(bodyM, cfg.v,  18.5 + exp*15, 0, isSel ? 1.4 : 1.0, 6, cHex, 'M1-04');
+    drawCylModel(bodyM, cfg.v, -(18.5 + exp*15), 0, isSel ? 1.4 : 1.0, 6, cHex, 'M1-04');
+  });
+
+  // Dynamic rubber bands on both sides connecting front eccentric ear to selected rear anchor!
+  const mech = calcMechanics(state.thetaDeg, state.gear);
+  const vSel = ANCHORS[state.gear].v;
+  drawSegmentModel(bodyM, [mech.E[0],  yBand, mech.E[1]], [vSel,  yBand, 0], 1.7, '#f43f5e', 'M1-04');
+  drawSegmentModel(bodyM, [mech.E[0], -yBand, mech.E[1]], [vSel, -yBand, 0], 1.7, '#f43f5e', 'M1-04');
+
+  // M1-05 Front latch pin at u=20 + Rear swinging hook at K=(-5, 0)
+  drawCylModel(frontM, 20, 0, 0, 1.1, 30 + exp*10, '#38bdf8', 'M1-05');
+  // Hook mounted on left & right exterior at K=(-5, ±20, 0), rotates clockwise (-angle in Z) when pulled
+  const hookPivotM = mMul(bodyM, mT(-5, 0, 0));
+  const hookM = mMul(hookPivotM, mRz(-state.hookAngleDeg * Math.PI / 180));
+  // Hook body & trigger arm
+  drawBoxModel(hookM, -5, 19.5 + exp*15, 6, 18, 2.0, 5, '#0ea5e9', 'M1-05', 1.0, -32);
+  drawBoxModel(hookM, 7.5, 19.5 + exp*15, 5, 15, 2.0, 3, '#38bdf8', 'M1-05', 1.0, 34);
+  drawCylModel(bodyM, -5, 19.5 + exp*15, 0, 1.1, 6, '#e0f2fe', 'M1-05');
+  // Hard stop behind hook
+  drawCylModel(bodyM, -13, 19.5 + exp*15, 4, 1.2, 5, '#7dd3fc', 'M1-05');
+
+  // M1-06 Bottom guide ring (v=60, w=-7) + decoupled trigger string
+  drawCylModel(bodyM, 60, 0, -7, 2.0, 3.0, '#10b981', 'M1-06');
+  const hookArmTip = [-5 + 14, 19.5 + exp*15, 9];
+  const guidePt = [60, 0, -7];
+  if (!state.ropeSlack) {
+    drawSegmentModel(bodyM, hookArmTip, guidePt, 0.85, '#34d399', 'M1-06');
+    drawSegmentModel(bodyM, guidePt, [115 + state.ropePull*8, 0, -7], 0.85, '#34d399', 'M1-06');
+  } else {
+    // Slack dropped string on floor behind robot
+    drawSegmentModel(mId(), [60, 0, 0.6], [120, 0, 0.6], 0.8, '#059669', 'M1-06');
+  }
+
+  // M1-07 205 deg stop pin & EVA pad
+  drawCylModel(bodyM, -18, 0, -4, 1.3, 36, '#a855f7', 'M1-07');
+  drawBoxModel(bodyM, -18, 0, -2.5, 4, 18, 2, '#c084fc', 'M1-07');
+
+  // M1-08 Optional cardstock beetle shell (drawn last for proper alpha blending!)
+  if (state.shellMode > 0) {
+    const a = state.shellMode === 1 ? 0.35 : 0.92;
+    const shellM = mMul(bodyM, mT(25, 2, 0));
+    drawMesh(shellMesh, shellM, '#14b8a6', 'M1-08', a);
+  }
+}
+
+// ============================================================================
+// 2D Side-View Engineering Mechanics & D1 Cross-Section Canvas
+// ============================================================================
+const sCanvas = document.getElementById('sideCanvas');
+const sCtx = sCanvas.getContext('2d');
+
+function render2DSide() {
+  const w = sCanvas.clientWidth, h = sCanvas.clientHeight;
+  if (sCanvas.width !== w || sCanvas.height !== h) { sCanvas.width = w; sCanvas.height = h; }
+  sCtx.clearRect(0, 0, w, h);
+
+  // World mapping: map X_rear in [-105, 120] and Z_up in [-12, 115]
+  const scale = Math.min(w / 240, h / 135);
+  const ox = w * 0.48 + state.jumpX * scale * 0.65;
+  const oz = h * 0.86 - state.jumpZ * scale;
+  const toScr = (xr, zu) => [ox + xr * scale, oz - (AXIS_Z_REST + zu) * scale];
+
+  // Ground line
+  const groundY = oz;
+  sCtx.strokeStyle = '#475569';
+  sCtx.lineWidth = 2;
+  sCtx.beginPath(); sCtx.moveTo(0, groundY); sCtx.lineTo(w, groundY); sCtx.stroke();
+  sCtx.fillStyle = '#64748b'; sCtx.font = '11px sans-serif';
+  sCtx.fillText('桌面 / 地面 (Z = 0 mm)', 12, groundY + 16);
+
+  // Draw 205 deg dashed ghost limit
+  const th205 = 205 * Math.PI / 180;
+  const oPt = toScr(0, 0);
+  const ghostEnd = toScr(70 * Math.cos(th205), 70 * Math.sin(th205));
+  sCtx.save();
+  sCtx.setLineDash([4,4]);
+  sCtx.strokeStyle = 'rgba(168,85,247,0.45)';
+  sCtx.lineWidth = 2;
+  sCtx.beginPath(); sCtx.moveTo(...oPt); sCtx.lineTo(...ghostEnd); sCtx.stroke();
+  sCtx.fillStyle = '#c084fc';
+  sCtx.fillText('205° 空载限位', ghostEnd[0]-35, ghostEnd[1]+14);
+  sCtx.restore();
+
+  // Theta continuous arc (counterclockwise in X-Z from +X rear)
+  sCtx.strokeStyle = '#fbbf24';
+  sCtx.lineWidth = 1.6;
+  sCtx.beginPath();
+  // In canvas Y-down, counterclockwise in Z-up is negative angle sweep!
+  sCtx.arc(oPt[0], oPt[1], 24 * scale, 0, -state.thetaDeg * Math.PI / 180, true);
+  sCtx.stroke();
+  sCtx.fillStyle = '#fcd34d';
+  sCtx.font = 'bold 12px monospace';
+  sCtx.fillText(`θ=${state.thetaDeg.toFixed(1)}°`, oPt[0] - 28, oPt[1] - 28 * scale);
+
+  // Rear rail (v = -10..95)
+  const r1 = toScr(-10, 0), r2 = toScr(95, 0);
+  sCtx.strokeStyle = '#c88a4b'; sCtx.lineWidth = 8 * scale; sCtx.lineCap = 'butt';
+  sCtx.beginPath(); sCtx.moveTo(...r1); sCtx.lineTo(...r2); sCtx.stroke();
+  // Rear fulcrum block at v=15
+  const fbTop = toScr(15, -4);
+  sCtx.fillStyle = '#9c632d';
+  sCtx.fillRect(fbTop[0]-7*scale, fbTop[1], 14*scale, 7*scale);
+
+  // Front rail (u = -10..70)
+  const th = state.thetaDeg * Math.PI / 180;
+  const f1 = toScr(-10*Math.cos(th), -10*Math.sin(th));
+  const f2 = toScr(70*Math.cos(th), 70*Math.sin(th));
+  sCtx.strokeStyle = '#e6b87d'; sCtx.lineWidth = 7.5 * scale;
+  sCtx.beginPath(); sCtx.moveTo(...f1); sCtx.lineTo(...f2); sCtx.stroke();
+
+  // Dynamic rubber band E -> A/B/C
+  const m = calcMechanics(state.thetaDeg, state.gear);
+  const eScr = toScr(m.E[0], m.E[1]);
+  const aScr = toScr(ANCHORS[state.gear].v, 0);
+  sCtx.strokeStyle = '#f43f5e'; sCtx.lineWidth = 3.2;
+  sCtx.beginPath(); sCtx.moveTo(...eScr); sCtx.lineTo(...aScr); sCtx.stroke();
+  sCtx.fillStyle = '#fda4af';
+  sCtx.beginPath(); sCtx.arc(...eScr, 4, 0, Math.PI*2); sCtx.fill();
+  sCtx.beginPath(); sCtx.arc(...aScr, 4, 0, Math.PI*2); sCtx.fill();
+  sCtx.fillStyle = '#fda4af'; sCtx.font = '11px monospace';
+  sCtx.fillText(`偏心耳E`, eScr[0]-36, eScr[1]-8);
+  sCtx.fillText(`${state.gear}档(${ANCHORS[state.gear].v.toFixed(0)})`, aScr[0]-18, aScr[1]+16);
+
+  // Pin P & Hook K
+  const pScr = toScr(m.P[0], m.P[1]);
+  sCtx.fillStyle = '#38bdf8';
+  sCtx.beginPath(); sCtx.arc(...pScr, 4.2, 0, Math.PI*2); sCtx.fill();
+  const kScr = toScr(-5, 0);
+  sCtx.strokeStyle = '#0ea5e9'; sCtx.lineWidth = 2.5;
+  sCtx.beginPath(); sCtx.arc(...kScr, 3.5, 0, Math.PI*2); sCtx.stroke();
+
+  // Ground reaction arrow during snap/takeoff!
+  if (state.phaseIdx === 2 || (state.phaseIdx === 3 && state.jumpZ < 18)) {
+    const hitScr = toScr(-68, -AXIS_Z_REST);
+    sCtx.strokeStyle = '#fbbf24'; sCtx.fillStyle = '#fbbf24'; sCtx.lineWidth = 3;
+    sCtx.beginPath(); sCtx.moveTo(hitScr[0], groundY); sCtx.lineTo(hitScr[0], groundY - 46); sCtx.stroke();
+    sCtx.beginPath(); sCtx.moveTo(hitScr[0], groundY-52); sCtx.lineTo(hitScr[0]-6, groundY-42); sCtx.lineTo(hitScr[0]+6, groundY-42); sCtx.fill();
+    sCtx.font = 'bold 12px sans-serif';
+    sCtx.fillText('地面反作用力 F_N 弹起!', hitScr[0]-58, groundY - 56);
+  }
+
+  // Hinge center O
+  sCtx.fillStyle = '#ffffff';
+  sCtx.beginPath(); sCtx.arc(...oPt, 4.5, 0, Math.PI*2); sCtx.fill();
+  sCtx.fillStyle = '#ffffff'; sCtx.font = 'bold 11px monospace';
+  sCtx.fillText('O (主轴)', oPt[0]+6, oPt[1]-6);
+}
+
+// Main loop
+function loop(now) {
+  stepAnimation(now);
+  render3D();
+  render2DSide();
+  requestAnimationFrame(loop);
+}
+updateTelemetry();
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>
